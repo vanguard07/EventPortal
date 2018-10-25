@@ -1,0 +1,2 @@
+# EventPortal
+Software Engineering Project
