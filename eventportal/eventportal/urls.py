@@ -15,8 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
+from portal import views as event_views
 
 urlpatterns = [
+    path('', event_views.land, name='land'),
+    path('home/', event_views.home, name='home'),
+    path('oauth/', include('social_django.urls', namespace='social')),
     path('admin/', admin.site.urls),
-    path('events/', include('portal.urls')),
+    path('events/', include('portal.urls'), name='events'),
+    # path('login/', auth_views.login, {'template_name': 'portal/login.html'}, name='login'),
+    path('logout/', auth_views.logout, {'template_name': 'portal/logout.html'}, name='logout'),
+    # path('register/', event_views.register, name='register-user'),
 ]
