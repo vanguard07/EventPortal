@@ -35,10 +35,12 @@ def EventList(request):
 
 def EventDetail(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
+    attendees = event.attendees.all()
     if request.method == 'POST':
         print(event.id)
     context = {
-        'event': event
+        'event': event,
+        'attendees': attendees,
     }
     return render(request, 'portal/detail.html', context)
 
@@ -48,10 +50,20 @@ def EventRegister(request, event_id):
     user_id = request.user.id
     user = get_object_or_404(Profile, pk=user_id)
     event = get_object_or_404(Event, pk=event_id)
-    # print(user_id)
+    # attendees = event.attendees.all()
     event.attendees.add(user)
-    return HttpResponseRedirect(reverse("portal:detail", args=(event_id, )))
+    return redirect('portal:detail', event_id)
 
+
+@login_required(redirect_field_name='portal/detail.html', login_url='/')
+def eventunregister(request, event_id):
+    user_id = request.user.id
+    user = get_object_or_404(Profile, pk=user_id)
+    event = get_object_or_404(Event, pk=event_id)
+    event.attendees.remove(user)
+    # attendees = event.attendees.all()
+    return redirect("portal:detail", event_id)
+    # return redirect('portal:index')
 #
 # def register(request):
 #     if request.method == 'POST':
