@@ -1,6 +1,16 @@
+{% extends 'portal/base.html' %}
+{% block content%}
 <h1>{{ event.name }}</h1>
 <p>Organizer: {{ event.creator }}</p>
-<form action="{% url 'portal:register' event.id %}" method="post">
+    {% if user.profile not in attendees %}
+    <form action="{% url 'portal:register' event.id %}" method="post">
     {% csrf_token %}
     <input type="submit" value="Register">
-</form>
+    </form>
+    {% else %}
+    <form action="{% url 'portal:unregister' event.id %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Un-register">
+    </form>
+    {% endif %}
+{% endblock %}

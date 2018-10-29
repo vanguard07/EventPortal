@@ -1,11 +1,9 @@
-from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponseRedirect
-from django.urls import reverse
 
-from .models import Event, Profile
-from .forms import SignUpForm
+from .models import Event, Profile, Clubs
+
+
 # Create your views here.
 
 
@@ -50,7 +48,6 @@ def EventRegister(request, event_id):
     user_id = request.user.id
     user = get_object_or_404(Profile, pk=user_id)
     event = get_object_or_404(Event, pk=event_id)
-    # attendees = event.attendees.all()
     event.attendees.add(user)
     return redirect('portal:detail', event_id)
 
@@ -61,10 +58,21 @@ def eventunregister(request, event_id):
     user = get_object_or_404(Profile, pk=user_id)
     event = get_object_or_404(Event, pk=event_id)
     event.attendees.remove(user)
-    # attendees = event.attendees.all()
     return redirect("portal:detail", event_id)
-    # return redirect('portal:index')
-#
+
+
+def clubs_list(request):
+    list_clubs = Clubs.objects.all()
+    print(list_clubs)
+    context = {'list_clubs': list_clubs}
+    return render(request, 'portal/clubslist.html', context)
+
+
+def clubs_detail(request, club_id):
+    club = get_object_or_404(Clubs, pk=club_id)
+    context = {'club': club}
+    return render(request, 'portal/clubdetails.html', context)
+
 # def register(request):
 #     if request.method == 'POST':
 #         form = SignUpForm(request.POST)

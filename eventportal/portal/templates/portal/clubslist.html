@@ -1,0 +1,12 @@
+{% extends 'portal/base.html' %}
+{% block content %}
+{% if list_clubs %}
+    <ul>
+    {% for club in list_clubs %}
+        <li><a href="{% url 'club-detail' club.id%}">{{ club.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No clubs are available.</p>
+{% endif %}
+{% endblock %}

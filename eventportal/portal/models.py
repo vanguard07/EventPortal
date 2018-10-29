@@ -21,13 +21,27 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     instance.profile.save()
 
 
+class Clubs(models.Model):
+    name = models.CharField(max_length=100)
+    about = models.CharField(max_length=150)
+    secretary = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='sec')
+    joint_secretary = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='joint_sec')
+
+    def __str__(self):
+        return self.name
+
+
 class Event(models.Model):
     name = models.CharField(max_length=50)
-    venue = models.CharField(max_length=200)
-    date = models.DateField(help_text='Please use the following format: <em>YYYY-MM-DD</em>.')
-    time = models.TimeField(help_text='Please use the following format: <em>HH:MM:SS<em>')
+    description = models.CharField(max_length=200)
+    venue = models.CharField(max_length=100)
+    start_date = models.DateField(help_text='Please use the following format: <em>YYYY-MM-DD</em>.')
+    end_date = models.DateField(help_text='Please use the following format: <em>YYYY-MM-DD</em>.')
+    start_time = models.TimeField(help_text='Please use the following format: <em>HH:MM:SS<em>')
+    end_time = models.TimeField(help_text='Please use the following format: <em>HH:MM:SS<em>')
     creator = models.ForeignKey(Profile, on_delete=models.CASCADE)
     attendees = models.ManyToManyField(Profile, related_name='attending', blank=True)
+    club = models.ForeignKey(Clubs, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
