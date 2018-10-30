@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
+from django.utils.timezone import now
 
 from .models import Event, Profile, Clubs
 
@@ -70,7 +71,11 @@ def clubs_list(request):
 
 def clubs_detail(request, club_id):
     club = get_object_or_404(Clubs, pk=club_id)
-    context = {'club': club}
+    event = Event.objects.all().filter(pk=club_id)
+    context = {
+        'club': club,
+        'event': event,
+    }
     return render(request, 'portal/clubdetails.html', context)
 
 # def register(request):

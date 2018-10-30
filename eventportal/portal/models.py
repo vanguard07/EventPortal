@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 # Create your models here.
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+import datetime
+import dateutil.parser
+from django.utils.timezone import now
 
 
 class Profile(models.Model):
@@ -17,6 +20,7 @@ class Profile(models.Model):
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
     if created:
+        Profile.is_participant = True
         Profile.objects.create(user=instance)
     instance.profile.save()
 
@@ -35,13 +39,33 @@ class Event(models.Model):
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=200)
     venue = models.CharField(max_length=100)
-    start_date = models.DateField(help_text='Please use the following format: <em>YYYY-MM-DD</em>.')
-    end_date = models.DateField(help_text='Please use the following format: <em>YYYY-MM-DD</em>.')
-    start_time = models.TimeField(help_text='Please use the following format: <em>HH:MM:SS<em>')
-    end_time = models.TimeField(help_text='Please use the following format: <em>HH:MM:SS<em>')
+    start = models.DateTimeField(help_text='Please use the following format: <em>YYYY-MM-DD</em>.')
+    end = models.DateTimeField(help_text='Please use the following format: <em>YYYY-MM-DD</em>.')
     creator = models.ForeignKey(Profile, on_delete=models.CASCADE)
     attendees = models.ManyToManyField(Profile, related_name='attending', blank=True)
     club = models.ForeignKey(Clubs, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
+
+    def time_period(self):
+        temp = now()
+        if temp >= self.end:
+            return "Past"
+        elif self.start <= temp < self.end:
+            return "Present"
+        else:
+            return "Future"
+
+
+class Winner(models.Model):
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    first = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='first')
+    second = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='second')
+    third = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='third')
+
+    def __str__(self):
+        return self.event.name
+
+
+

@@ -5,6 +5,28 @@
 <p>{{club.about}}</p>
 <h4>Secretary: {{club.secretary}}</h4>
 
+<hr>
+
+<h1>Ongoing events</h1>
+{% for record in event %}
+    {% if record.time_period == "Present"%}
+        <a href="{% url 'portal:detail' record.id %}">{{record.name}}</a>
+    {% endif %}
+{% endfor %}
+
+<h1>Upcoming Events</h1>
+{% for record in event %}
+    {% if record.time_period == "Future"%}
+        <a href="{% url 'portal:detail' record.id %}">{{record.name}}</a>
+    {% endif %}
+{% endfor %}
+
+<h1>Past Events</h1>
+{% for record in event %}
+    {% if record.time_period == "Past"%}
+        <a href="{% url 'portal:detail' record.id %}">{{record.name}}</a>
+    {% endif %}
+{% endfor %}
 <a href="/clubs/">Go Back</a>
 
 {% endblock %}
