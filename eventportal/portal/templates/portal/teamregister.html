@@ -3,6 +3,10 @@
 <form method="post" action="{% url 'portal:teamregister' event.id %}">
     {% csrf_token %}
     {{form.as_p}}
+    {% for i in range%}
+    <label for="emailids">Enter member {{i}} email</label>
+    <input type="email" name="emailid" id="emailids"><br>
+    {% endfor %}
     <input type="submit" value="submit">
 </form>
 {% endblock %}

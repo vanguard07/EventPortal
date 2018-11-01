@@ -18,3 +18,10 @@ class TeamForm(forms.ModelForm):
     class Meta:
         model = Teams
         fields = ['team_name']
+
+
+class MemberForm(TeamForm):
+    creator = forms.CharField(max_length=100)
+
+    class Meta(TeamForm.Meta):
+        fields = TeamForm.Meta.fields + ['creator', ]
