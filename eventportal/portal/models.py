@@ -6,7 +6,7 @@ from django.dispatch import receiver
 import datetime
 import dateutil.parser
 from django.utils.timezone import now
-
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -44,6 +44,7 @@ class Event(models.Model):
     creator = models.ForeignKey(Profile, on_delete=models.CASCADE)
     attendees = models.ManyToManyField(Profile, related_name='attending', blank=True)
     club = models.ForeignKey(Clubs, on_delete=models.CASCADE)
+    team_size = models.IntegerField(default=1, validators=[MaxValueValidator(5), MinValueValidator(1)])
 
     def __str__(self):
         return self.name
@@ -68,4 +69,11 @@ class Winner(models.Model):
         return self.event.name
 
 
+class Teams(models.Model):
+    team_name = models.CharField(max_length=50)
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    members = models.ForeignKey(Profile, related_name='members', blank=True, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.team_name
 
