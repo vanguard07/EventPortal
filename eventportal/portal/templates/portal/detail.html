@@ -4,10 +4,14 @@
 <li>{{ event.description }}</li>
 <p>Organizer: {{ event.creator }}</p>
     {% if user.profile not in attendees %}
-    <form action="{% url 'portal:register' event.id %}" method="post">
-    {% csrf_token %}
-    <input type="submit" value="Register">
-    </form>
+        {% if event.team_size == 1 %}
+        <form action="{% url 'portal:register' event.id %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Register">
+        </form>
+        {% else %}
+        <h5>Click Here</h5>
+        {% endif %}
     {% else %}
     <form action="{% url 'portal:unregister' event.id %}" method="post">
     {% csrf_token %}

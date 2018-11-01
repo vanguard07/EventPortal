@@ -2,7 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils.timezone import now
 
-from .models import Event, Profile, Clubs
+from .models import Event, Profile, Clubs, Teams
+from .forms import TeamForm
 
 
 # Create your views here.
@@ -78,6 +79,7 @@ def clubs_detail(request, club_id):
     }
     return render(request, 'portal/clubdetails.html', context)
 
+
 # def register(request):
 #     if request.method == 'POST':
 #         form = SignUpForm(request.POST)
@@ -93,4 +95,19 @@ def clubs_detail(request, club_id):
 #     return render(request, 'portal/signup.html', {'form': form})
 
 
-
+def teamregister(request, event_id):
+    event = get_object_or_404(Event, pk=event_id)
+    if request.method == 'POST':
+        form = TeamForm(request.POST)
+        if form.is_valid():
+            obj = Teams()
+            obj.team_name = form.cleaned_data['team_name']
+            obj.event = event
+            obj.save()
+            print(obj)
+            # team.save()
+            obj.refresh_from_db()
+            return render(request, 'index.html')
+    else:
+        form = TeamForm()
+        return render(request, 'portal/teamregister.html', {'form': form, 'event': event})

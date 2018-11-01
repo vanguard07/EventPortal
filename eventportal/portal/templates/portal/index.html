@@ -3,7 +3,9 @@
 {% if event_list %}
     <ul>
     {% for event in event_list %}
+        {% if event.time_period == "Present" %}
         <li><a href="{% url 'portal:detail' event.id%}">{{ event.name }}</a></li>
+        {% endif %}
     {% endfor %}
     </ul>
 {% else %}
