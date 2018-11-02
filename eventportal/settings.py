@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 
 import dj_database_url
+import django_heroku
 from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -86,7 +87,16 @@ if DEBUG:
         }
     }
 else:
-    DATABASES['default'] = dj_database_url.config(default=config('DATABASE_URL'))
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': config('DB_NAME'),
+            'USER': config('DB_USER'),
+            'PASSWORD': config('DB_PASSWORD'),
+            'HOST': config('DB_HOST'),
+            'PORT': config('DB_PORT'),
+        }
+    }
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
@@ -144,6 +154,10 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
+
+django_heroku.settings(locals())
+
+
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config('G_KEY')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config('G_SKEY')
 SOCIAL_AUTH_LOGIN_ERROR_URL = '/home'
