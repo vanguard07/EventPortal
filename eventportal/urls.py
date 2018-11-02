@@ -26,7 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('events/', include('portal.urls'), name='events'),
     # path('login/', auth_views.login, {'template_name': 'portal/login.html'}, name='login'),
-    path('logout/', auth_views.logout, {'template_name': 'portal/logout.html'}, name='logout'),
+    path('logout/', auth_views.LogoutView.as_view(template_name="portal/logout.html"), name='logout'),
     # path('register/', general_views.register, name='register-user'),
     path('clubs/', general_views.clubs_list, name='club-list'),
     path('clubs/<int:club_id>', general_views.clubs_detail, name='club-detail'),
