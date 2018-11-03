@@ -1,12 +1,11 @@
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from django.core.mail import EmailMultiAlternatives
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
-from django.utils.timezone import now
-from django.core.mail import send_mail, EmailMultiAlternatives
-from django.conf import settings
 
-from .models import Event, Profile, Clubs, Teams
 from .forms import MemberForm
+from .models import Event, Profile, Clubs, Teams
 
 
 # Create your views here.
@@ -88,58 +87,47 @@ def clubs_detail(request, club_id):
     return render(request, 'portal/clubdetails.html', context)
 
 
-# def register(request):
-#     if request.method == 'POST':
-#         form = SignUpForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             username = form.cleaned_data.get('username')
-#             raw_password = form.cleaned_data.get('password1')
-#             user = authenticate(username=username, password=raw_password)
-#             login(request, user)
-#             return HttpResponseRedirect(reverse("portal:index"))
-#     else:
-#         form = SignUpForm()
-#     return render(request, 'portal/signup.html', {'form': form})
-
 @login_required(redirect_field_name='portal/teamregister.html', login_url='/')
 def teamregister(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
-    if request.method == 'POST':
-        form = MemberForm(request.POST)
-        if form.is_valid():
-            obj = Teams()
-            obj.team_name = form.cleaned_data['team_name']
-            obj.event = event
-            user = get_object_or_404(Profile, pk=request.user.id)
-            obj.members = user
-            obj.save()
-            obj.refresh_from_db()
-            team = Teams.objects.filter(team_name=form.cleaned_data['team_name']).values_list('pk', flat=True)
-            url = 'http://127.0.0.1:8000/invite/' + str(team[0])
-            message = str(obj.members) + " has invited you to join the team " + str(obj.team_name) + \
-                      " for the event " + str(event.name)
-            msg = EmailMultiAlternatives(
-                'Invite for joining team ' + str(team[0]),
-                message,
-                settings.EMAIL_HOST_USER,
-                # request.POST.getlist('emailid')
-                ['avtans@gmail.com']
-            )
-            html_content = url
-            msg.attach_alternative(html_content, "text/html")
-            msg.send()
-            print(request.POST.getlist('emailid'))
-            # team.save()
-            return render(request, 'portal/index.html')
+    user = get_object_or_404(Profile, pk=request.user.id)
+    if user not in event.attendees.all():
+        if request.method == 'POST':
+            form = MemberForm(request.POST)
+            if form.is_valid():
+                obj = Teams()
+                obj.team_name = form.cleaned_data['team_name']
+                obj.event = event
+                obj.members = user
+                obj.save()
+                obj.refresh_from_db()
+                team = Teams.objects.filter(team_name=form.cleaned_data['team_name']).values_list('pk', flat=True)
+                url = 'http://127.0.0.1:8000/invite/' + str(team[0])
+                message = str(obj.members) + " has invited you to join the team " + str(obj.team_name) + \
+                          " for the event " + str(event.name)
+                msg = EmailMultiAlternatives(
+                    'Invite for joining team ' + str(team[0]),
+                    message,
+                    settings.EMAIL_HOST_USER,
+                    # request.POST.getlist('emailid')
+                    ['avtans@gmail.com']
+                )
+                html_content = url
+                msg.attach_alternative(html_content, "text/html")
+                msg.send()
+                print(request.POST.getlist('emailid'))
+                # team.save()
+                return render(request, 'portal/index.html')
+        else:
+            form = MemberForm()
+            context = {
+                'form': form,
+                'event': event,
+                'range': range(1, event.team_size)
+            }
+            return render(request, 'portal/teamregister.html', context)
     else:
-        form = MemberForm()
-        context = {
-            'form': form,
-            'event': event,
-            'range': range(1, event.team_size)
-        }
-        return render(request, 'portal/teamregister.html', context)
+        return HttpResponse("Already registered")
 
 
 @login_required(redirect_field_name='portal/teamregister.html', login_url='/')

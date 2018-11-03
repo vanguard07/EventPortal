@@ -1,14 +1,49 @@
 {% extends 'portal/base.html' %}
+{% load static %}
+{% block title %}{% endblock %}
 {% block content %}
-{% if event_list %}
-    <ul>
-    {% for event in event_list %}
-        {% if event.time_period == "Present" %}
-        <li><a href="{% url 'portal:detail' event.id%}">{{ event.name }}</a></li>
-        {% endif %}
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No events are available.</p>
-{% endif %}
+
+<div id="home" class="banner-area">
+    <!-- Backgound Image -->
+    <div class="bg-image bg-parallax overlay" style="background-image:url({% static "portal/images/concert1.jpg" %})"></div>
+    <div class=" home-wrapper">
+        <div class="col-md-10 col-md-offset-1 text-center">
+            <div class="home-content">
+                <h1 class="white-text">Events</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cont-section">
+    <div class="container-fluid eventss">
+        <div class="container">
+            <div class="eventname">
+                <div class="row">
+                    {% if event_list %}
+                        {% for event in event_list %}
+                            {% if event.time_period == "Present" or event.time_period == "Future"%}
+                    <div class="col-sm-4">
+                        <div class="thumbnai">
+                            <!--                    <a href="http://www.guoguiyan.com/data/out/59/68944876-drama-wallpapers.jpg" target="_blank">-->
+                            <img src='{% static "portal/images/drama.jpeg" %}' alt="Drama" style="width:100%; height:250px">
+                            <div class="caption">
+                                <a href="{% url 'portal:detail' event.id %}" style="text-decoration:none">
+                                    <h1> {{ event.name }}</h1>
+                                </a>
+                            </div>
+                            <!--                    </a>-->
+                        </div>
+                    </div>
+                        {% endif %}
+                    {% endfor %}
+                    {% else %}
+                        <div class="caption">
+                            <p>No events available</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

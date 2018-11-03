@@ -1,5 +1,7 @@
 {% extends 'portal/base.html' %}
 
 {% block content %}
-    <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a><br>
+    <div style="margin: 50px">
+        <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a><br>
+    </div>
 {% endblock %}
