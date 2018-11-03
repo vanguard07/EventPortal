@@ -15,9 +15,7 @@
         background-attachment:fixed;
     }
     .bg-image.bg-parall {
-        background: url("images/cover.jpg");
-        background-attachment:fixed;
-
+        background: url("../images/cover.jpg") fixed;
     }
 
     .bg-image.overlay:after {
