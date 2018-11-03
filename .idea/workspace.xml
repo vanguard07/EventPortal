@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a41562c5-804f-45fe-ab69-1b013129ab41" name="Default" comment="Added static content">
+    <list default="true" id="a41562c5-804f-45fe-ab69-1b013129ab41" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/EventPortal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/EventPortal.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventportal/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/eventportal/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/portal/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/portal/css/style.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,7 +33,7 @@
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/login.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="6" column="14" lean-forward="true" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+              <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -40,14 +41,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eventportal/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="49" column="49" selection-start-line="49" selection-start-column="49" selection-end-line="49" selection-end-column="49" />
+            <state relative-caret-position="240">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
               <folding>
                 <element signature="e#312#321#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/portal/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -107,6 +117,7 @@
         <option value="$PROJECT_DIR$/eventportal/urls.py" />
         <option value="$PROJECT_DIR$/portal/templates/portal/base.html" />
         <option value="$PROJECT_DIR$/eventportal/settings.py" />
+        <option value="$PROJECT_DIR$/static/portal/css/style.css" />
       </list>
     </option>
   </component>
@@ -146,6 +157,26 @@
               <item name="EventPortal" type="b2602c69:ProjectViewProjectNode" />
               <item name="EventPortal" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EventPortal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EventPortal" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="portal" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EventPortal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EventPortal" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="portal" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EventPortal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EventPortal" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="portal" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -4992,7 +5023,21 @@
       <option name="project" value="LOCAL" />
       <updated>1541275029871</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Changes in settings.py for static files">
+      <created>1541276188618</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1541276188618</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Changes in settings.py for static files">
+      <created>1541276320340</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1541276320340</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -5006,6 +5051,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50067115" side_tool="true" weight="0.25641027" />
@@ -5013,8 +5059,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49932885" weight="0.23219374" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49932885" visible="true" weight="0.25641027" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17114094" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49932885" visible="true" weight="0.25641027" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17114094" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32905984" />
@@ -5089,10 +5135,10 @@
     <MESSAGE value="Added header in base.html" />
     <MESSAGE value="Added templates" />
     <MESSAGE value="Added static content" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added static content" />
+    <MESSAGE value="Changes in settings.py for static files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes in settings.py for static files" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/eventportal/portal/templates/portal/logout.html" />
     <entry file="file://$PROJECT_DIR$/eventportal/portal/templates/portal/index.html" />
     <entry file="file://$PROJECT_DIR$/eventportal/portal/templates/portal/signup.html" />
     <entry file="file://$PROJECT_DIR$/eventportal/eventportal/urls.py" />
@@ -5152,7 +5198,7 @@
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="6" column="14" lean-forward="true" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
@@ -5240,11 +5286,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/eventportal/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="49" column="49" selection-start-line="49" selection-start-column="49" selection-end-line="49" selection-end-column="49" />
+        <state relative-caret-position="240">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
           <folding>
             <element signature="e#312#321#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/portal/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
         </state>
       </provider>
     </entry>
