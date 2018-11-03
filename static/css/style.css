@@ -15,7 +15,7 @@
         background-attachment:fixed;
     }
     .bg-image.bg-parall {
-        background: url("../images/cover.jpg") fixed;
+        background: url("images/cover.jpg") fixed;
     }
 
     .bg-image.overlay:after {
@@ -355,7 +355,7 @@ height:100vh;
     min-height: 1000px;
     width: 100%;
     padding-bottom: 120px;
-    background: url("../portal/images/middle-cover.jpg") no-repeat;
+    background: url("images/middle-cover.jpg") no-repeat;
     background-size: 100% auto;
 }
 .thecom{
