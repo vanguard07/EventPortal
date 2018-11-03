@@ -355,7 +355,7 @@ height:100vh;
     min-height: 1000px;
     width: 100%;
     padding-bottom: 120px;
-    background: url("image/middle-cover.jpg") no-repeat;
+    background: url("../images/middle-cover.jpg") no-repeat;
     background-size: 100% auto;
 }
 .thecom{
