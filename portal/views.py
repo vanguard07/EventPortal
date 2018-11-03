@@ -23,9 +23,12 @@ def land(request):
 def home(request):
     user_id = request.user.id
     user = get_object_or_404(Profile, pk=user_id)
+    events = Event.objects.all().filter(attendees=user)
+    print(events)
     context = {
         'first_name': user.user.first_name,
         'username': user.user.username,
+        'events': events
     }
     return render(request, 'portal/home.html', context)
 
@@ -53,7 +56,8 @@ def EventRegister(request, event_id):
     user_id = request.user.id
     user = get_object_or_404(Profile, pk=user_id)
     event = get_object_or_404(Event, pk=event_id)
-    event.attendees.add(user)
+    if event.time_period == "Present" or "Future":
+        event.attendees.add(user)
     return redirect('portal:detail', event_id)
 
 
@@ -62,7 +66,8 @@ def eventunregister(request, event_id):
     user_id = request.user.id
     user = get_object_or_404(Profile, pk=user_id)
     event = get_object_or_404(Event, pk=event_id)
-    event.attendees.remove(user)
+    if event.time_period == "Future":
+        event.attendees.remove(user)
     return redirect("portal:detail", event_id)
 
 
@@ -75,7 +80,7 @@ def clubs_list(request):
 
 def clubs_detail(request, club_id):
     club = get_object_or_404(Clubs, pk=club_id)
-    event = Event.objects.all().filter(pk=club_id)
+    event = Event.objects.filter(pk=club_id)
     context = {
         'club': club,
         'event': event,

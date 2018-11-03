@@ -3,5 +3,9 @@
 {% block content %}
   <h2>Homepage</h2>
   <p>Hello {{ user.username }}!</p>
+  <p>Your registered events: </p>
+  {% for event in events %}
+  <li><a href="{% url 'portal:detail' event.id%}">{{ event.name }}</a></li>
+  {% endfor %}
   <a href="/logout">Logout</a>
 {% endblock %}
