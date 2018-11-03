@@ -2,30 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a41562c5-804f-45fe-ab69-1b013129ab41" name="Default" comment="Changes in settings.py for static files">
-      <change afterPath="$PROJECT_DIR$/static/portal/css/all.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/portal/css/all.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/portal/css/bootstrap-grid.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/portal/css/bootstrap-grid.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/portal/css/bootstrap-reboot.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/portal/css/bootstrap-reboot.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/portal/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/portal/css/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/portal/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/portal/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/portal/css/brands.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/portal/css/creative.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/portal/css/creative.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/portal/js/bootstrap.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/portal/js/bootstrap.bundle.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/portal/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/portal/js/bootstrap.bundle.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/portal/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/portal/js/bootstrap.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/portal/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/portal/js/bootstrap.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/portal/js/creative.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/portal/js/creative.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,49 +15,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/templates/portal/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2840">
-              <caret line="142" selection-start-line="142" selection-end-line="142" />
+            <state relative-caret-position="360">
+              <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/views.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/templates/portal/login.html">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eventportal/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2780">
-              <caret line="139" column="48" selection-start-line="139" selection-start-column="48" selection-end-line="139" selection-end-column="48" />
-              <folding>
-                <element signature="e#312#321#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/portal/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+            <state relative-caret-position="240">
+              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -136,9 +86,10 @@
         <option value="$PROJECT_DIR$/portal/templates/portal/index.html" />
         <option value="$PROJECT_DIR$/portal/templates/portal/detail.html" />
         <option value="$PROJECT_DIR$/eventportal/urls.py" />
-        <option value="$PROJECT_DIR$/portal/templates/portal/base.html" />
         <option value="$PROJECT_DIR$/static/portal/css/style.css" />
         <option value="$PROJECT_DIR$/eventportal/settings.py" />
+        <option value="$PROJECT_DIR$/static/css/style.css" />
+        <option value="$PROJECT_DIR$/portal/templates/portal/base.html" />
       </list>
     </option>
   </component>
@@ -188,13 +139,6 @@
               <item name="EventPortal" type="b2602c69:ProjectViewProjectNode" />
               <item name="EventPortal" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="portal" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EventPortal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EventPortal" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="portal" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -230,7 +174,12 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/css/style.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/eventportal/settings.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/portal/templates/portal/base.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/portal/templates/portal/clubdetails.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/portal/templates/portal/clubslist.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/portal/templates/portal/index.html</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -238,6 +187,43 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/css/style.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/70133985-photographer-wallpapers.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/8314929977_28fd740070_z-1.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/Aphex-Twin-Wallpapers-007.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/Concert1.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/aoif.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/art.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/backg.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/bcg.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/bcgs.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/box.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/club.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/cover.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/d.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/da.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/dance.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/dance3.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/drama.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/drama1.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/eventbc.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/footer-cover.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/header.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/index.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/landing.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/literature.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/m.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/map.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/middle-cover.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/music.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/music1.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/music2.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/music5.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/organiser.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/photo-1514525253161-7a46d19cd819.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/technical.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/winner.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/images/winner.jpg</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -245,6 +231,43 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="true" />
           <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/css/style.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/70133985-photographer-wallpapers.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/8314929977_28fd740070_z-1.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/Aphex-Twin-Wallpapers-007.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/Concert1.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/aoif.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/art.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/backg.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/bcg.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/bcgs.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/box.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/club.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/cover.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/d.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/da.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/dance.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/dance3.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/drama.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/drama1.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/eventbc.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/footer-cover.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/header.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/index.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/landing.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/literature.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/m.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/map.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/middle-cover.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/music.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/music1.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/music2.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/music5.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/organiser.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/photo-1514525253161-7a46d19cd819.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/technical.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/winner.jpeg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/static/portal/images/winner.jpg</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -482,15 +505,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50067115" side_tool="true" weight="0.25641027" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5013423" side_tool="true" weight="0.23219374" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49932885" visible="true" weight="0.23219374" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4986577" weight="0.23219374" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49932885" weight="0.25641027" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17114094" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49932885" visible="true" weight="0.25641027" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17114094" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32905984" />
@@ -570,7 +594,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Changed links of images" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/eventportal/eventportal/urls.py" />
     <entry file="file://$PROJECT_DIR$/eventportal/portal/templates/portal/base.html" />
     <entry file="file://$PROJECT_DIR$/eventportal/portal/templates/portal/login.html" />
     <entry file="file://$PROJECT_DIR$/eventportal/portal/forms.py" />
@@ -701,10 +724,20 @@
     <entry file="file://$PROJECT_DIR$/portal/templates/portal/signup.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/templates/portal/base.html">
+    <entry file="file://$PROJECT_DIR$/static/portal/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2840">
-          <caret line="142" selection-start-line="142" selection-end-line="142" />
+        <state relative-caret-position="340">
+          <caret line="17" column="53" lean-forward="true" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eventportal/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="139" column="41" selection-start-line="139" selection-start-column="41" selection-end-line="139" selection-end-column="41" />
+          <folding>
+            <element signature="e#312#321#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -721,20 +754,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eventportal/settings.py">
+    <entry file="file://$PROJECT_DIR$/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2780">
-          <caret line="139" column="48" selection-start-line="139" selection-start-column="48" selection-end-line="139" selection-end-column="48" />
-          <folding>
-            <element signature="e#312#321#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="240">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/portal/css/style.css">
+    <entry file="file://$PROJECT_DIR$/portal/templates/portal/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+        <state relative-caret-position="360">
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
         </state>
       </provider>
     </entry>
