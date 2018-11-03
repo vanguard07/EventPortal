@@ -1,32 +1,74 @@
 {% extends 'portal/base.html' %}
-
+{% load static %}
+{% block title %}{% endblock %}
 {% block content %}
-<h1>{{club.name}}</h1>
-<p>{{club.about}}</p>
-<h4>Secretary: {{club.secretary}}</h4>
 
-<hr>
+<div id="home" class="banner-area">
+	<!-- Backgound Image -->
+	<div class="bg-image bg-parallax overlay" style="background-image:url({% static "portal/images/art.jpg"%})"></div>
+	<div class="home-wrapper">
+		<div class="col-md-10 col-md-offset-1 text-center">
+			<div class="home-content">
+				  <h1 class="white-text">{{club.name}}</h1>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="cont-section">
+		<div class="container-fluid eventss">
+		    <div class="container">
+		        <div class="eventname">
+		             <div class="row">
+						 <div class="col-sm-6">
+							 <div class="thumbnai">
+								 <div class="pos">
+									 <h1>Secretary</h1>
+								 </div>
+								 <img src="{{ details.image.url }}" style="width:100%; height:250px">
+								 <div class="membername">
+									 <h1> {{club.secretary}} </h1>
+								 </div>
+							 </div>
+						   </div>
+						 <div class="col-sm-6">
+							 <div class="thumbnai">
+								 <div class="pos">
+									 <h1>Joint Secretary</h1>
+								 </div>
+								 <img src="{{ details.image.url }}" style="width:100%; height:250px">
+								 <div class="membername">
+									 <h1> {{club.joint_secretary}} </h1>
+								 </div>
+							 </div>
+						   </div>
+		             </div>
+		        </div>
+						<center><div class="text">
+						<div class="text-3d">
+							<p>{{club.about}}</p>
+							<h1>Ongoing events</h1>
+								{% for record in event %}
+									{% if record.time_period == "Present"%}
+										<a href="{% url 'portal:detail' record.id %}">{{record.name}}</a>
+									{% endif %}
+								{% endfor %}
+								<h1>Upcoming Events</h1>
+								{% for record in event %}
+									{% if record.time_period == "Future"%}
+										<a href="{% url 'portal:detail' record.id %}">{{record.name}}</a>
+									{% endif %}
+								{% endfor %}
 
-<h1>Ongoing events</h1>
-{% for record in event %}
-    {% if record.time_period == "Present"%}
-        <a href="{% url 'portal:detail' record.id %}">{{record.name}}</a>
-    {% endif %}
-{% endfor %}
-
-<h1>Upcoming Events</h1>
-{% for record in event %}
-    {% if record.time_period == "Future"%}
-        <a href="{% url 'portal:detail' record.id %}">{{record.name}}</a>
-    {% endif %}
-{% endfor %}
-
-<h1>Past Events</h1>
-{% for record in event %}
-    {% if record.time_period == "Past"%}
-        <a href="{% url 'portal:detail' record.id %}">{{record.name}}</a>
-    {% endif %}
-{% endfor %}
-<a href="/clubs/">Go Back</a>
-
+								<h1>Past Events</h1>
+								{% for record in event %}
+									{% if record.time_period == "Past"%}
+										<a href="{% url 'portal:detail' record.id %}">{{record.name}}</a>
+									{% endif %}
+								{% endfor %}
+								<a href="/clubs/">Go Back</a>
+						</div>
+					  </div></center>
+		   </div>
+		</div>
+</div>
 {% endblock %}

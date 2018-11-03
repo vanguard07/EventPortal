@@ -71,7 +71,7 @@ class Winner(models.Model):
 class Teams(models.Model):
     team_name = models.CharField(max_length=50)
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
-    members = models.ForeignKey(Profile, related_name='members', blank=True, on_delete=models.CASCADE, null=True)
+    members = models.ManyToManyField(Profile, related_name='members', blank=True, null=True)
 
     def __str__(self):
         return self.team_name

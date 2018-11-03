@@ -13,9 +13,11 @@
         <h5>Click Here</h5>
         {% endif %}
     {% else %}
-    <form action="{% url 'portal:unregister' event.id %}" method="post">
-    {% csrf_token %}
-    <input type="submit" value="Un-register">
-    </form>
+      {% if event.time_period == "Future" %}
+        <form action="{% url 'portal:unregister' event.id %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Un-register">
+        </form>
+        {% endif %}
     {% endif %}
 {% endblock %}
