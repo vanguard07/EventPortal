@@ -14,7 +14,7 @@
 		</div>
 	</div>
 </div>
-<div class="cont-section">
+<!-- <div class="cont-section"> -->
 		<div class="container-fluid eventss">
 		    <div class="container">
 		        <div class="eventname">
@@ -43,7 +43,54 @@
 						   </div>
 		             </div>
 		        </div>
-						<center><div class="text">
+						<center>
+								<div class="text"style="  box-shadow: 1px 10px 40px #00b3b3;
+										background-color:  #ccffff;
+										border: 10px solid  #ccffff;
+										border-radius: 45px;
+										width: 600px;
+										">
+										<div class="text-3dm">
+												<center><h1>{{club.about}}</h1></center>
+												<p>Arts are the creations that we do with our hands, actions and voice, that immediately excites a feeling of pleasure and beauty in those who see them are listen to them. Arts are excellent hob.</P>
+										</div>
+								</div>
+						</center>
+
+						<div class="row" style=" margin-bottom: 6 0px; margin-top: 60px;">
+								<div class="col-md-4">
+										 <center><h1>Ongoing events</h1>
+												 {% for record in event %}
+				 									{% if record.time_period == "Present"%}
+				 										<a href="{% url 'portal:detail' record.id %}">{{record.name}}</a>
+				 									{% endif %}
+				 								{% endfor %}
+										</center>
+								</div>
+								<div class="col-md-4">
+									 <center>	<h1>Upcoming Events</h1>
+											 {% for record in event %}
+												 {% if record.time_period == "Future"%}
+													 <a href="{% url 'portal:detail' record.id %}">{{record.name}}</a>
+												 {% endif %}
+											 {% endfor %}
+							   	 </center>
+						  	</div>
+								<div class="col-md-4">
+										<center><h1>Past Events</h1>
+											<h1>Past Events</h1>
+											{% for record in event %}
+												{% if record.time_period == "Past"%}
+													<a href="{% url 'portal:detail' record.id %}">{{record.name}}</a>
+												{% endif %}
+											{% endfor %}
+										</center>
+								</div>
+						</div>
+						<div>
+							  <a href="/clubs/"><center><h1>Go Back</h1></center></a>
+						<div>
+						<!-- <center><div class="text">
 						<div class="text-3d">
 							<p>{{club.about}}</p>
 							<h1>Ongoing events</h1>
@@ -67,8 +114,8 @@
 								{% endfor %}
 								<a href="/clubs/">Go Back</a>
 						</div>
-					  </div></center>
+					  </div></center> -->
 		   </div>
 		</div>
-</div>
+<!-- </div> -->
 {% endblock %}

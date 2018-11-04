@@ -28,7 +28,6 @@
     .site-footer {
         position: relative;
         padding: 40px 0 30px;
-        /* background: url(D:/unified_event_portal/event_portal/static/image/footer-cover.jpg) no-repeat; */
         background-size: cover;
         opacity: 0.9;
     }
@@ -44,14 +43,14 @@
         left: 0;
     }
 
-    .site-footer .footer-cover-title {
+    /* .site-footer .footer-cover-title {
         min-height: 480px;
         width: 100%;
-    }
+    } */
 
     .site-footer .footer-cover-title h2 {
-        font-size: 20vw;
-        font-weight: 700;
+        font-size: 7vw;
+        font-weight: 800;
         line-height: 1;
         margin-bottom: 0;
         text-align: center;
@@ -67,13 +66,17 @@
     .footer-content-wrapper {
         position: absolute;
         width: 100%;
-        height: auto;
-        z-index: 4;
-        top: 130px;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
         left: 0;
+        right: 0;
+        z-index: 4;
+
         padding: 6px 0;
         text-align: center;
-    }
+    }.
 
     .footer-content-wrapper .flex {
         flex-direction: column;
@@ -117,21 +120,15 @@
     }
 
     .footer-content-wrapper .footer-social {
-        margin-top: 32px;
+        margin-top: 10px;
     }
 
     .footer-content-wrapper .footer-social .flex {
         flex-direction: row !important;
     }
 
-    .footer-content-wrapper .footer-social ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
 
-    }
-
-    .footer-content-wrapper .footer-social ul a {
+    .footer-content-wrapper .footer-social a {
         padding: 5px 16px;
         font-size: 20px;
         color: hsl(0, 0%, 100%);
@@ -161,13 +158,15 @@
           <li><a href="">Organiser</a></li>
           <li><a href="#foot">Contact</a></li>
         </ul>
+        <ul class="nav navbar-nav navbar-right">
+        <li ><a href="#" class="btn navbar-right">
+           <span class="glyphicon glyphicon-log-out"></span> Logout </a>
+         </li>
+      </ul>
       </div>
     </div>
   </nav>
 <!-- </div> -->
-
-
-
 
 {% block content %}
 {% endblock %}
@@ -175,14 +174,14 @@
 <div id="foot">
     <footer class="site-footer" style=" background-image:url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=be465b88fdf21a6e05ab522458452344&w=1000&q=80');">
            <div class="footer-cover-title flex justify-content-center align-items-center">
-               <h2>Event's Time</h2>
+               <h2>Unified Event Portal</h2>
            </div>
            <div class="footer-content-wrapper">
                <div class="container">
                    <div class="row">
-                       <div class="col-12">
+                       <div class="col-12"  style="width:100%; ">
                            <div class="entry-title">
-                               <a href="#">Event's Time</a>
+                               <a href="#">Unified Event Portal</a>
                            </div><!-- entry-title -->
                            <div class="entry-mail">
                                <a href="#">SAYHELLO@EVENTSTIME.COM</a>
@@ -192,15 +191,10 @@
     Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                            </div><!-- copyright-info -->
-                           <div class="footer-social">
-                               <ul >
-                                   <li><a href="#"><i class="fa fa-google"></i></a></li>
-                                   <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                                   <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                   <!-- <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                   <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                                   <li><a href="#"><i class="fa fa-linkedin-in"></i></a></li> -->
-                               </ul>
+                             <div class="footer-social">
+                                 <a href="#"><i class="fa fa-google"></i></a>
+                                 <a href="#"><i class="fa fa-facebook-f"></i></a>
+                                 <a href="#"><i class="fa fa-twitter"></i></a>
                            </div><!-- footer-social -->
                        </div><!-- col -->
                    </div><!-- row -->
