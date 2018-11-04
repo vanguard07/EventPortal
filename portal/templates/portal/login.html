@@ -1,7 +1,105 @@
-{% extends 'portal/base.html' %}
+<!-- {% extends 'portal/base.html' %}
 
 {% block content %}
     <div style="margin: 50px">
         <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a><br>
     </div>
-{% endblock %}
+{% endblock %} -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+        <title>Clubs</title>
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700%7CCabin:400%7CDancing+Script" rel="stylesheet">
+				{% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <link href='https://fonts.googleapis.com/css?family=Allura' rel='stylesheet'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Dynalight' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<style>
+/* --- Background Image --- */
+        /* .bg-image {
+            position:absolute;
+            left:0;
+            right:0;
+            top:0;
+            bottom:0;
+            background-position:center;
+            background-size:cover;
+
+            overflow: hidden;
+            width: 100%;
+            background:
+            animation: clouds_anim 75s linear infinite;
+
+            }
+            @keyframesc clouds_anim{
+                0%{background-position: 0 0;}
+                100%{background-position: -2122px 0;}
+            }
+
+            .banner-area {
+                position:relative;
+                padding-bottom:40px;
+            }
+
+            .banner-area .home-wrapper {
+                position: absolute;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                    -ms-transform: translateY(-50%);
+                        transform: translateY(-50%);
+                left: 0;
+                right: 0;
+            }
+
+            #home {
+            height:100vh;
+            } */
+    </style>
+</head>
+<body>
+<div id="home" class="banner-area">
+    <!-- Backgound Image -->
+    <div class="bg-image bg-parallax overlay" style="background-image:url('https://www.planwallpaper.com/static/images/Cool_background-6_SBd4Ddp.jpg') ">
+    </div>
+    <div class="home-wrapper">
+      <center>  <div class="row" style="width: 100%;">
+            <div class="col-md-4  text-center"></div>
+              <div class="col-md-4  text-center">
+                  <div class="home-content">
+                        <div class="content" style="	bottom: 0; background: rgb(0, 0, 0); 	background: rgba(0, 0, 0, 0.5); color: #f1f1f1; width: 100%;	padding: 20px;" >
+
+                            <h2 style="text-align:center; font-family:  'Allura'; color: white;  font-weight: 500;">Welcome to Unified Event Portal</h2><br><br>
+                             <i class="fa fa-user" style="font-size:48px;color:white;"></i><br><br><br><br>
+                             <a href="#" class="btn btn-info btn-lg">
+                                <span class="glyphicon glyphicon-log-in"></span> <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a>
+                             </a>
+                        </div>
+                    </div>
+                </div>
+            <div class="col-md-4  text-center"></div>
+        </div></center>
+    </div>
+</div>
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.display = "block";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.display = "none";
+}
+</script>
+</body>
+</html>

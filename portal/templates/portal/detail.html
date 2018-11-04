@@ -1,5 +1,6 @@
-{% extends 'portal/base.html' %}
+<!-- {% extends 'portal/base.html' %}
 {% block content%}
+
 <h1>{{ event.name }}</h1>
 <li>{{ event.description }}</li>
 <p>Organizer: {{ event.creator }}</p>
@@ -21,3 +22,126 @@
         {% endif %}
     {% endif %}
 {% endblock %}
+
+
+<!DOCTYPE html> -->
+<html lang="en">
+	<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+        <title>Clubs</title>
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700%7CCabin:400%7CDancing+Script" rel="stylesheet">
+        {% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <link href='https://fonts.googleapis.com/css?family=Allura' rel='stylesheet'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Dynalight' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<style>
+/* --- Background Image --- */
+        /* .bg-image {
+            position:absolute;
+            left:0;
+            right:0;
+            top:0;
+            bottom:0;
+            background-position:center;
+            background-size:cover;
+
+            overflow: hidden;
+            width: 100%;
+            background:
+            animation: clouds_anim 75s linear infinite;
+
+            }
+            @keyframesc clouds_anim{
+                0%{background-position: 0 0;}
+                100%{background-position: -2122px 0;}
+            }
+
+            .banner-area {
+                position:relative;
+                padding-bottom:40px;
+            }
+
+            .banner-area .eventdetails {
+                position: absolute;
+                top: 20%;
+                -webkit-transform: translateY(-20%);
+                    -ms-transform: translateY(-20%);
+                        transform: translateY(-20%);
+                left: 0;
+                right: 0;
+
+                margin: 0px 150px;
+            }
+
+            #home {
+            height:150vh;
+            }
+
+        .content p{
+            margin-left: 20px;
+        } */
+    </style>
+</head>
+<body>
+<div id="home" class="banner-area">
+    <!-- Backgound Image -->
+    <div class="bg-image bg-parallax overlay" style="background-image:url('http://technonewstrend.co/wp-content/uploads/2018/06/wallpapers-for-desktop-full-hd-lovely-hexagon-geometry-4k-laptop-full-hd-1080p-hd-4k-wallpapers-of-wallpapers-for-desktop-full-hd.jpg') ">
+    </div>
+    <div class="eventdetails">
+        <div class="row" style="width: 100%;">
+
+              <div class="col-md-12">
+                  <div class="home-content">
+                        <div class="content" style="bottom: 0; background: rgb(0, 0, 0); 	background: rgba(0, 0, 0, 0.5); color: #f1f1f1; width: 100%;	padding: 20px;" >
+
+                            <h3>Event Name</h3>
+                            <p> {{ event.name }}</p>
+                            <h3>Event Description</h3>
+                            <p> {{ event.description }}</p>
+                            <h3>Event Organiser</h3>
+                            <p>{{ event.creator }}  </p>
+                            {% if user.profile not in attendees %}
+                                {% if event.team_size == 1 %}
+                                <form action="{% url 'portal:register' event.id %}" method="post">
+                                {% csrf_token %}
+                                <input type="submit" value="Register">
+                                </form>
+                                {% else %}
+                                <h5>Click Here</h5>
+                                {% endif %}
+                            {% else %}
+                              {% if event.time_period == "Future" %}
+                                <form action="{% url 'portal:unregister' event.id %}" method="post">
+                                {% csrf_token %}
+                                <input type="submit" value="Un-register">
+                                </form>
+                                {% endif %}
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.display = "block";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.display = "none";
+}
+</script>
+</body>
+</html>

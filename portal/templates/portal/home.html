@@ -4,41 +4,24 @@
 {% block content %}
 
 <div id="home" class="banner-area">
-
-			<!-- Backgound Image -->
-			<div class="bg-image bg-parall overlay">
-            </div>
-            <div class="home-wrapper">
-
-                <div class="col-md-10 col-md-offset-1 text-center">
-                    <div class="home-content">
-                          <h1 class="white-text">Event's Time</h1>
-
-                    </div>
+			<div class="bg-image bg-parall overlay"> 		<!-- Backgound Image -->  </div>
+      <div class="home-wrapper">
+            <div class="col-md-10 col-md-offset-1 text-center">
+                <div class="home-content">
+								    	<div class="content" style="	bottom: 0; background: rgb(0, 0, 0); 	background: rgba(0, 0, 0, 0.5); color: #f1f1f1; width: 100%;	padding: 20px;" >
+														<h2 style="text-align:center; font-family:  'Allura'; color: white; font-size: 5vw; font-weight: 500;">Welcome {{ user.username }}</h2>
+														<h2>your registered events: </h2>
+														<div class="row" >
+																{% for event in events %}
+																<div class=col-md-4 style="margin-top: 10px;"><a href="{% url 'portal:detail' event.id%}">{{ event.name }}</a></div>
+																{% endfor %}
+														</div>
+											</div>
                 </div>
-
             </div>
-         </div>
+      </div>
+ </div>
 
-<!--about us-->
-        <div class="container">
-            <div id=about-us >
-            		<div class="sec">
-                    <div class="about">
-                        <h1>  About Us</h1>
-                    </div>
-                    <div class="para">
-                        <center>
-							<p>Hello {{ user.username }}!</p>
-							<p>Your registered events: </p>
-							{% for event in events %}
-							<li><a href="{% url 'portal:detail' event.id%}">{{ event.name }}</a></li>
-							{% endfor %}
-						</center>
-                    </div>
-                </div>
-							</div>
-        </div>
 
 
         <div class="ceo">
