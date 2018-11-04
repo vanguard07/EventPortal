@@ -1,30 +1,4 @@
-<!-- {% extends 'portal/base.html' %}
-{% block content%}
-
-<h1>{{ event.name }}</h1>
-<li>{{ event.description }}</li>
-<p>Organizer: {{ event.creator }}</p>
-    {% if user.profile not in attendees %}
-        {% if event.team_size == 1 %}
-        <form action="{% url 'portal:register' event.id %}" method="post">
-        {% csrf_token %}
-        <input type="submit" value="Register">
-        </form>
-        {% else %}
-        <h5>Click Here</h5>
-        {% endif %}
-    {% else %}
-      {% if event.time_period == "Future" %}
-        <form action="{% url 'portal:unregister' event.id %}" method="post">
-        {% csrf_token %}
-        <input type="submit" value="Un-register">
-        </form>
-        {% endif %}
-    {% endif %}
-{% endblock %}
-
-
-<!DOCTYPE html> -->
+<!DOCTYPE html>
 <html lang="en">
 	<head>
         <meta charset="utf-8">
@@ -103,7 +77,6 @@
               <div class="col-md-12">
                   <div class="home-content">
                         <div class="content" style="bottom: 0; background: rgb(0, 0, 0); 	background: rgba(0, 0, 0, 0.5); color: #f1f1f1; width: 100%;	padding: 20px;" >
-
                             <h3>Event Name</h3>
                             <p> {{ event.name }}</p>
                             <h3>Event Description</h3>
@@ -117,7 +90,7 @@
                                 <input type="submit" value="Register">
                                 </form>
                                 {% else %}
-                                <h5>Click Here</h5>
+                                    <a href="{% url 'portal:teamregister' event.id %}">Team Register</a>
                                 {% endif %}
                             {% else %}
                               {% if event.time_period == "Future" %}
