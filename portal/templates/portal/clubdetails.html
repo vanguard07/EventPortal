@@ -105,14 +105,13 @@
 										<a href="{% url 'portal:detail' record.id %}">{{record.name}}</a>
 									{% endif %}
 								{% endfor %}
-
 								<h1>Past Events</h1>
 								{% for record in event %}
 									{% if record.time_period == "Past"%}
 										<a href="{% url 'portal:detail' record.id %}">{{record.name}}</a>
 									{% endif %}
 								{% endfor %}
-								<a href="/clubs/">Go Back</a>
+							<br><a href="/clubs/">Go Back</a>
 						</div>
 					  </div></center> -->
 		   </div>
