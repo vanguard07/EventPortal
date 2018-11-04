@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 
 from .forms import MemberForm
-from .models import Event, Profile, Clubs, Teams
+from .models import Event, Profile, Clubs, Teams, Winner
 
 
 # Create your views here.
@@ -79,7 +79,8 @@ def clubs_list(request):
 
 def clubs_detail(request, club_id):
     club = get_object_or_404(Clubs, pk=club_id)
-    event = Event.objects.filter(pk=club_id)
+    event = Event.objects.all().filter(club=club_id)
+    print(event)
     context = {
         'club': club,
         'event': event,
@@ -136,3 +137,14 @@ def invite(request, team_id):
     team.members.add("xyz")
     print(team.members)
     return HttpResponse("success")
+
+
+def winner(request, event_id):
+    event = get_object_or_404(Event, pk=event_id)
+    winners = Winner.objects.all().filter(event=event_id)
+    context = {
+        'winners': winners,
+        'event': event,
+    }
+    return render(request, 'portal/winners.html', context)
+
