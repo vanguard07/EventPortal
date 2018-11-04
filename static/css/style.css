@@ -14,6 +14,9 @@
 
         background-attachment:fixed;
     }
+    .bg-image.bg-parall {
+        background: url("/static/images/cover.jpg") fixed;
+    }
 
     .bg-image.overlay:after {
         content:"";
@@ -201,6 +204,14 @@ height:100vh;
 
     }
 
+    .cont-section {
+    min-height: 1000px;
+    width: 100%;
+    padding-bottom: 120px;
+    background: url("/static/images/middle-cover.jpg") no-repeat;
+    background-size: 100% auto;
+    }
+
     /* .cont{
 
         margin-top: 80px;
@@ -321,7 +332,6 @@ height:100vh;
     min-height: 1000px;
     width: 100%;
     padding-bottom: 120px;
-    /* background: url("images/middle-cover.jpg") no-repeat; */
     background-size: 100% auto;
 }
 .organise{
