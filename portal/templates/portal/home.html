@@ -4,40 +4,40 @@
 {% block content %}
 
 <div id="home" class="banner-area">
-			<div class="bg-image bg-parall overlay"> 		<!-- Backgound Image -->  </div>
-      <div class="home-wrapper">
-            <div class="col-md-10 col-md-offset-1 text-center">
-                <div class="home-content">
-								    	<div class="content" style="	bottom: 0; background: rgb(0, 0, 0); 	background: rgba(0, 0, 0, 0.5); color: #f1f1f1; width: 100%;	padding: 20px;" >
-														<h2 style="text-align:center; font-family:  'Allura'; color: white; font-size: 5vw; font-weight: 500;">Welcome {{ user.username }}</h2>
-														<h2>your registered events: </h2>
-														<div class="row" >
-																{% for event in events %}
-																<div class=col-md-4 style="margin-top: 10px;"><a href="{% url 'portal:detail' event.id%}">{{ event.name }}</a></div>
-																{% endfor %}
-														</div>
-											</div>
+    <div class="bg-image bg-parall overlay">        <!-- Backgound Image -->  </div>
+    <div class="home-wrapper">
+        <div class="col-md-10 col-md-offset-1 text-center">
+            <div class="home-content">
+                <div class="content" style="	bottom: 0; background: rgb(0, 0, 0); 	background: rgba(0, 0, 0, 0.5); color: #f1f1f1; width: 100%;	padding: 20px;">
+                    <h2 style="text-align:center; font-family:  'Allura'; color: white; font-size: 5vw; font-weight: 500;">
+                        Welcome {{ user.username }}</h2>
+                    <h2>your registered events: </h2>
+                    <div class="row">
+                        {% for event in events %}
+                        <div class=col-md-4 style="margin-top: 10px;"><a href="{% url 'portal:detail' event.id%}">{{ event.name }}</a></div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
-      </div>
- </div>
-
-
-
-        <div class="ceo">
-               <div class="block">
-
-                 <div class="row">
-                    <div class="col-sm-4 " ><a href="{% url 'club-list' %}" style="text-decoration:none"><h1>Clubs</h1></a></div>
-                    <div class="col-sm-4 " ><a href="{% url 'portal:index'%}"><h1>Events</h1></a></div>
-                    <div class="col-sm-4 " ><a href="#" style="text-decoration:none"><h1>Organiser</h1></a></div>
-                </div>
-
-                   </div>
         </div>
-				<div id= "photogallery">
-		         <div id="hom" class="banner-area">
-		            <div class=" imj overlay" style="
+    </div>
+</div>
+
+
+<div class="ceo">
+    <div class="block">
+
+        <div class="row">
+            <div class="col-sm-4 "><a href="{% url 'club-list' %}" style="text-decoration:none"><h1>Clubs</h1></a></div>
+            <div class="col-sm-4 "><a href="{% url 'portal:index'%}"><h1>Events</h1></a></div>
+            <div class="col-sm-4 "><a href="#" style="text-decoration:none"><h1>Organiser</h1></a></div>
+        </div>
+
+    </div>
+</div>
+<div id="photogallery">
+    <div id="hom" class="banner-area">
+        <div class=" imj overlay" style="
 		                background-image:url('https://lyve.fm/wp-content/uploads/2018/09/Marshmello-Live-@-Amsterdam-Dance-Event.jpg');
 		                background-size:cover;
 		                height:100vh;
@@ -45,82 +45,100 @@
 		                display:table;
 
 		                background-attachment:fixed;  ">
-		            </div>
-								<div class="home-wrapper">
-										<div class="col-md-10 col-md-offset-1 text-center">
-												<div class="home-content">
-															<h1 class="white-text">Gallery</h1>
-												</div>
-										</div>
-								</div>
-		        </div>
         </div>
+        <div class="home-wrapper">
+            <div class="col-md-10 col-md-offset-1 text-center">
+                <div class="home-content">
+                    <h1 class="white-text">Gallery</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-        <!-- <div class="container-fluid"> -->
-				<div  class="cont-section">
-				  	<div class="container">
-								<div class="thecom">
-										<div class="thecomletelineup">
-												<!-- <div class="col-6 col-md-4 col-lg-3 artist-single"> -->
-										     <div class="artist-single">
-												   	 <div class="row">
-														    <div class="col-6 col-md-4 col-lg-3">
-														 				<figure class="imagegallery">
-																		 		<a href="#"> <img src='http://www.glocalmind.com/blog/wp-content/uploads/2015/03/url.jpeg' alt=""> </a>
-																		<a href="#" class="box-link"> <img src='{% static "image/box.jpg" %}' alt=""> </a>
-															 	 		</figure>
-															 	</div>
-																<div class="col-6 col-md-4 col-lg-3">
-														 				<figure class="imagegallery">
-																		 		<a href="#"> <img src='https://www.lfxevents.co.uk/wp-content/uploads/2017/11/Live-Music.jpg' alt=""> </a>
-																		 <a href="#" class="box-link"> <img src='{% static "image/box.jpg" %}' alt=""> </a>
-															 	 		</figure>
-															 	</div>
-																<div class="col-6 col-md-4 col-lg-3">
-														 				<figure class="imagegallery">
-																		 		<a href="#"> <img src='https://images-na.ssl-images-amazon.com/images/I/81tdS1MES2L._SX425_.jpg' alt=""> </a>
-																		  <a href="#" class="box-link"> <img src='{% static "image/box.jpg" %}' alt=""> </a>
-															 	 		</figure>
-															 	</div>
-																<div class="col-6 col-md-4 col-lg-3">
-														 				<figure class="imagegallery">
-																		 		<a href="#"> <img src='https://rukminim1.flixcart.com/image/832/832/j26gmfk0/poster/d/g/k/medium-andblmusic2365-ananyadesigns-music-heavy-metal-original-imaek7n57wpzdhtr.jpeg?q=70' alt=""> </a>
-																		 <a href="#" class="box-link"> <img src='{% static "image/box.jpg" %}' alt=""> </a>
-															 	 		</figure>
-															 	</div>
-															</div>
-														</div>
-														<div class="artist">
-	 												   	 <div class="row">
-																<div class="col-6 col-md-4 col-lg-3">
-														 				<figure class="imagegallery">
-																		 		<a href="#"> <img src='https://images.damusic.be/multiped/original/b7fa0e04c45a625cc32c167d0c51c46d911eafdd.jpg' alt=""> </a>
-																		  <a href="#" class="box-link"> <img src='{% static "image/box.jpg" %}' alt="" style="height:50px; width:50px;"> </a>
-															 	 		</figure>
-															 	</div>
-																<div class="col-6 col-md-4 col-lg-3">
-														 				<figure class="imagegallery">
-																		 		<a href="#"> <img src='http://wallpaperlepi.com/wp-content/uploads/2015/01/Man-Of-Rock-Music-Wallpaper.jpg' alt=""> </a>
-																		  <a href="#" class="box-link"> <img src='{% static "image/box.jpg" %}' alt="" style="height:50px; width:50px;"> </a>
-															 	 		</figure>
-															 	</div>
-																<div class="col-6 col-md-4 col-lg-3">
-														 				<figure class="imagegallery">
-																		 		<a href="#"> <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzK96laa-ZbdVhX4jdDsWKk-YvmJ76jxO9yIxNF6LxiTJQOVZF' alt=""> </a>
-																		  <a href="#" class="box-link"> <img src='{% static "image/box.jpg" %}' alt="" style="height:50px; width:50px;"> </a>
-															 	 		</figure>
-															 	</div>
-																<div class="col-6 col-md-4 col-lg-3">
-														 				<figure class="imagegallery">
-																		 		<a href="#"> <img src='https://www.robertmosci.com/img/Nora_1.jpg' alt=""> </a>
-																		 <a href="#" class="box-link"> <img src='{% static "image/box.jpg" %}' alt="" style="height:50px; width:50px;"> </a>
-															 	 		</figure>
-															 	</div>
-														</div>
-												</div>
-										</div>
-								</div>
-				   	</div>
-				</div>
+<!-- <div class="container-fluid"> -->
+<div class="cont-section">
+    <div class="container">
+        <div class="thecom">
+            <div class="thecomletelineup">
+                <!-- <div class="col-6 col-md-4 col-lg-3 artist-single"> -->
+                <div class="artist-single">
+                    <div class="row">
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <figure class="imagegallery">
+                                <a href="#"> <img
+                                        src='http://www.glocalmind.com/blog/wp-content/uploads/2015/03/url.jpeg' alt="">
+                                </a>
+                                <a href="#" class="box-link"> <img src='{% static "image/box.jpg" %}' alt=""> </a>
+                            </figure>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <figure class="imagegallery">
+                                <a href="#"> <img
+                                        src='https://www.lfxevents.co.uk/wp-content/uploads/2017/11/Live-Music.jpg'
+                                        alt=""> </a>
+                                <a href="#" class="box-link"> <img src='{% static "image/box.jpg" %}' alt=""> </a>
+                            </figure>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <figure class="imagegallery">
+                                <a href="#"> <img
+                                        src='https://images-na.ssl-images-amazon.com/images/I/81tdS1MES2L._SX425_.jpg'
+                                        alt=""> </a>
+                                <a href="#" class="box-link"> <img src='{% static "image/box.jpg" %}' alt=""> </a>
+                            </figure>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <figure class="imagegallery">
+                                <a href="#"> <img
+                                        src='https://rukminim1.flixcart.com/image/832/832/j26gmfk0/poster/d/g/k/medium-andblmusic2365-ananyadesigns-music-heavy-metal-original-imaek7n57wpzdhtr.jpeg?q=70'
+                                        alt=""> </a>
+                                <a href="#" class="box-link"> <img src='{% static "image/box.jpg" %}' alt=""> </a>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+                <div class="artist">
+                    <div class="row">
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <figure class="imagegallery">
+                                <a href="#"> <img
+                                        src='https://images.damusic.be/multiped/original/b7fa0e04c45a625cc32c167d0c51c46d911eafdd.jpg'
+                                        alt=""> </a>
+                                <a href="#" class="box-link"> <img src='{% static "image/box.jpg" %}' alt=""
+                                                                   style="height:50px; width:50px;"> </a>
+                            </figure>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <figure class="imagegallery">
+                                <a href="#"> <img
+                                        src='http://wallpaperlepi.com/wp-content/uploads/2015/01/Man-Of-Rock-Music-Wallpaper.jpg'
+                                        alt=""> </a>
+                                <a href="#" class="box-link"> <img src='{% static "image/box.jpg" %}' alt=""
+                                                                   style="height:50px; width:50px;"> </a>
+                            </figure>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <figure class="imagegallery">
+                                <a href="#"> <img
+                                        src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzK96laa-ZbdVhX4jdDsWKk-YvmJ76jxO9yIxNF6LxiTJQOVZF'
+                                        alt=""> </a>
+                                <a href="#" class="box-link"> <img src='{% static "image/box.jpg" %}' alt=""
+                                                                   style="height:50px; width:50px;"> </a>
+                            </figure>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <figure class="imagegallery">
+                                <a href="#"> <img src='https://www.robertmosci.com/img/Nora_1.jpg' alt=""> </a>
+                                <a href="#" class="box-link"> <img src='{% static "image/box.jpg" %}' alt=""
+                                                                   style="height:50px; width:50px;"> </a>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

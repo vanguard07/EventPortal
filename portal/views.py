@@ -148,3 +148,9 @@ def winner(request, event_id):
     }
     return render(request, 'portal/winners.html', context)
 
+
+def winnerlist(request):
+    events_list = Event.objects.all()
+    context = {"event_list": events_list}
+    return render(request, "portal/winner-event.html", context)
+
