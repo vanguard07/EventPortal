@@ -100,6 +100,7 @@ def teamregister(request, event_id):
                 obj.team_name = form.cleaned_data['team_name']
                 obj.event = event
                 obj.members = user
+                event.attendees.add(user)
                 obj.save()
                 obj.refresh_from_db()
                 team = Teams.objects.filter(team_name=form.cleaned_data['team_name']).values_list('pk', flat=True)
@@ -110,8 +111,7 @@ def teamregister(request, event_id):
                     'Invite for joining team ' + str(team[0]),
                     message,
                     settings.EMAIL_HOST_USER,
-                    # request.POST.getlist('emailid')
-                    ['avtans@gmail.com']
+                    [request.POST.getlist('emailid')]
                 )
                 html_content = url
                 msg.attach_alternative(html_content, "text/html")
@@ -136,7 +136,7 @@ def invite(request, team_id):
     team = get_object_or_404(Teams, pk=team_id)
     team.members.add("xyz")
     print(team.members)
-    return HttpResponse("success")
+    return render(request, 'home')
 
 
 def winner(request, event_id):
