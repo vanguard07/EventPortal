@@ -1,0 +1,10 @@
+django-heroku
+gunicorn
+django-progressive-web-app
+social-auth-app-django
+python-decouple
+psycopg2-binary
+django-heroku
+dj_database_url
+django-extensions
+graphviz
