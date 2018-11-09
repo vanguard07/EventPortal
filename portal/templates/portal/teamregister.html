@@ -1,12 +1,28 @@
 {% extends 'portal/base.html' %}
+{% load static %}
+{% block title %} Team Register{% endblock %}
 {% block content %}
-<form method="post" action="{% url 'portal:teamregister' event.id %}">
-    {% csrf_token %}
-    {{form.as_p}}
-    {% for i in range%}
-    <label for="emailids">Enter member {{i}} email</label>
-    <input type="email" name="emailid" id="emailids"><br>
-    {% endfor %}
-    <input type="submit" value="submit">
-</form>
+
+<div id="home" class="banner-area">
+    <!-- Backgound Image -->
+    <div class="bg-image bg-parallax overlay" style="background-image:url({% static " images
+    /drama1.jpg"%})">
+</div>
+<div class="container-fluid eventss">
+    <div class="container">
+        <div class="eventname">
+            <div class="row">
+                <form method="post" action="{% url 'portal:teamregister' event.id %}">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    {% for i in range%}
+                    <label for="emailids">Enter member {{i}} email</label>
+                    <input type="email" name="emailid" id="emailids"><br>
+                    {% endfor %}
+                    <input type="submit" value="submit" type="button" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

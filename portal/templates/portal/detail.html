@@ -1,6 +1,6 @@
 {% extends 'portal/base.html' %}
 {% load static %}
-{% block title %}{% endblock %}
+{% block title %}Details{% endblock %}
 {% block content %}
 
 <div id="home" class="banner-area">
@@ -17,13 +17,17 @@
                             <p> {{ event.name }}</p>
                             <h3>Event Description</h3>
                             <p> {{ event.description }}</p>
+                            <h3>Event Starts at</h3>
+                            <p> {{ event.start }}</p>
+                            <h3>Event Ends at</h3>
+                            <p> {{ event.end }}</p>
                             <h3>Event Organiser</h3>
                             <p>{{ event.creator }}  </p>
                             {% if user.profile not in attendees %}
                                 {% if event.team_size == 1 %}
                                 <form action="{% url 'portal:register' event.id %}" method="post">
                                 {% csrf_token %}
-                                <input type="submit" value="Register">
+                                <input type="submit" value="Register" type="button" class="btn btn-success">
                                 </form>
                                 {% else %}
                                     <a href="{% url 'portal:teamregister' event.id %}">Team Register</a>
@@ -32,7 +36,7 @@
                               {% if event.time_period == "Future" %}
                                 <form action="{% url 'portal:unregister' event.id %}" method="post">
                                 {% csrf_token %}
-                                <input type="submit" value="Un-register">
+                                <input type="submit" value="Un-register" type="button" class="btn btn-danger">
                                 </form>
                                 {% endif %}
                             {% endif %}

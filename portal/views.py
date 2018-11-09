@@ -55,7 +55,7 @@ def EventRegister(request, event_id):
     user_id = request.user.id
     user = get_object_or_404(Profile, pk=user_id)
     event = get_object_or_404(Event, pk=event_id)
-    if event.time_period == "Present" or "Future":
+    if event.time_period() == "Present" or "Future":
         event.attendees.add(user)
     return redirect('portal:detail', event_id)
 
@@ -65,7 +65,7 @@ def eventunregister(request, event_id):
     user_id = request.user.id
     user = get_object_or_404(Profile, pk=user_id)
     event = get_object_or_404(Event, pk=event_id)
-    if event.time_period == "Future":
+    if event.time_period() == "Future":
         event.attendees.remove(user)
     return redirect("portal:detail", event_id)
 
