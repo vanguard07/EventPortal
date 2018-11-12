@@ -35,8 +35,28 @@ class EventAdmin(admin.ModelAdmin):
         return form
 
 
+class WinnerForm(forms.ModelForm):
+    class Meta:
+        model = Winner
+        fields = ('event', 'first', 'second', 'third')
+
+    def clean(self):
+        event = self.cleaned_data.get('event')
+        if event.time_period() != 'Past':
+            raise forms.ValidationError("Declare winners for past events only.")
+
+
+class WinnerAdmin(admin.ModelAdmin):
+    form = WinnerForm
+
+    def get_form(self, request, *args, **kwargs):
+        form = super(WinnerAdmin, self).get_form(request, *args, **kwargs)
+        form.current_user = request.user
+        return form
+
+
 admin.site.register(Event, EventAdmin)
 admin.site.register(Profile)
 admin.site.register(Clubs)
-admin.site.register(Winner)
+admin.site.register(Winner, WinnerAdmin)
 admin.site.register(Teams)
