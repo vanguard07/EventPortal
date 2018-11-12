@@ -62,7 +62,7 @@ ROOT_URLCONF = 'eventportal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['portal/templates'],
+        'DIRS': ['portal/templates/portal'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
