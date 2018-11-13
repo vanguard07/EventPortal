@@ -55,8 +55,31 @@ class WinnerAdmin(admin.ModelAdmin):
         return form
 
 
+class ClubsForm(forms.ModelForm):
+    class Meta:
+        model = Clubs
+        fields = ('name', 'about', 'secretary', 'joint_secretary')
+
+    def clean(self):
+        sec = self.cleaned_data.get('secretary')
+        jsec = self.cleaned_data.get('joint_secretary')
+        if not sec.is_organizer:
+            raise forms.ValidationError("Person assigned to secretary is not an organizer")
+        if not jsec.is_organizer:
+            raise forms.ValidationError("Person assigned to joint secretary is not an organizer")
+
+
+class ClubsAdmin(admin.ModelAdmin):
+    form = ClubsForm
+
+    def get_form(self, request, *args, **kwargs):
+        form = super(ClubsAdmin, self).get_form(request, *args, **kwargs)
+        form.current_user = request.user
+        return form
+
+
 admin.site.register(Event, EventAdmin)
 admin.site.register(Profile)
-admin.site.register(Clubs)
+admin.site.register(Clubs, ClubsAdmin)
 admin.site.register(Winner, WinnerAdmin)
 admin.site.register(Teams)
