@@ -8,7 +8,7 @@ from django import forms
 class EventForm(forms.ModelForm):
     class Meta:
         model = Event
-        fields = ('name', 'description', 'venue', 'start', 'end', 'attendees', 'creator', 'club', 'team_size')
+        fields = ('name', 'image','description', 'venue', 'start', 'end', 'attendees', 'creator', 'club', 'team_size')
 
     def clean(self):
         start = self.cleaned_data.get('start')
@@ -58,7 +58,7 @@ class WinnerAdmin(admin.ModelAdmin):
 class ClubsForm(forms.ModelForm):
     class Meta:
         model = Clubs
-        fields = ('name', 'about', 'secretary', 'joint_secretary')
+        fields = ('name','image', 'about','Sec_image','joint_image','secretary', 'joint_secretary')
 
     def clean(self):
         sec = self.cleaned_data.get('secretary')

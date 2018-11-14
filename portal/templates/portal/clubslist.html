@@ -1,47 +1,180 @@
 {% extends 'portal/base.html' %}
 {% load static %}
-{% block title %} Club List{% endblock %}
+{% block title %} Dashboard{% endblock %}
 {% block content %}
 
-<div id="home" class="banner-area">
-    <!-- Backgound Image -->
-    <div class="bg-image bg-parallax overlay" style="background-image:url({% static "images/Concert1.jpg" %})"></div>
-    <div class=" home-wrapper">
-        <div class="col-md-10 col-md-offset-1 text-center">
-            <div class="home-content">
-                <h1 class="white-text">Clubs</h1>
-            </div>
+<!--wrapper start-->
+<div class="wrapper" id="wrapper">
+	<!--header-->
+	<div class="banner row" id="banner">
+		<div class="parallax text-center" style="background-image: url(http://mysemeneya.com/wp-content/uploads/2016/08/particles-background-02.jpg);">
+			<div class="parallax-pattern-overlay">
+				<div class="container text-center" style="height:600px;padding-top:170px;">
+					<div class="home-wrapper">
+	        <div class="col-md-10 col-md-offset-1 text-center">
+	            <div class="home-content">
+	                <div class="content" style="	bottom: 0; background: rgb(0, 0, 0); 	background: rgba(0, 0, 0, 0.5); color: #f1f1f1; width: 100%;	padding: 20px;">
+	                    <h2 style="text-align:center; color: white; font-size: 5vw; font-weight: 500;">
+	                        Welcome To Unified Portal Event
+                      </h2>
+	                </div>
+	            </div>
+	        </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--about us-->
+<section class="aboutus" id="clubs">
+	<div class="container">
+		<div class="heading text-center">
+			<img class="dividerline" src='{% static "images/sep.png" %}'alt="">
+			<h2>About Clubs</h2>
+
+			<img class="dividerline" src='{% static "images/sep.png" %}' alt="">
+			<h3>Indian Institute of Information Technology, Vadodara has a strong tradition of student bodies and clubs that attract students from all disciplines, cutting across colleges, courses, and nationalities.<br/>There are technical clubs for the academically inclined; there are cultural clubs that give a student the opportunity to dabble in the fine arts, music, dance, theatre – everything that feeds the mind and spirit.<br/>There are several clubs that students can be a member of, take membership of in order to be part of the cultural landscape of the University.</h3>
+		</div>
+		<div class="row">
+			{% if list_clubs %}
+					{% for club in list_clubs %}
+			<div class="col-md-6">
+				<div class="papers text-center">
+					<img src="{{ club.image.url }}" alt="" style="height:300px; width:300px;"><br/>
+					<a href="{% url 'club-detail' club.id %}" style="text-decoration:none">
+					<h4 class="notopmarg nobotmarg">{{club.name}}</h4>
+				</div>
+			</div>
+			{% endfor %}
+			{% endif %}
+		</div>
+	</div>
+</section>
+
+	<!--specialties-->
+<section class="specialties" id="photogallery">
+	<div class="container">
+		<div class="heading text-center">
+			<img class="dividerline" src='{% static "images/sep.png" %}' alt="">
+			<h2>Gallery</h2>
+			<img class="dividerline" src='{% static "images/sep.png" %}' alt="">
+			<div class="row" Style="margin-top:100px;">
+				<div class="col-md-4">
+					<div class="restmenuwrap">
+						<div class="restitem clearfixs">
+							<div><img src='{% static "images/event10.jpg" %}' style="height: 150px;"></div>
+				  	</div>
+					</div>
         </div>
-    </div>
-</div>
-<!-- <div class="cont-section"> -->
-    <div class="container-fluid eventss">
-        <div class="container">
-            <div class="eventname">
-                <div class="row">
-                    {% if list_clubs %}
-                        {% for club in list_clubs %}
-                    <div class="col-sm-4">
-                        <div class="thumbnai">
-                            <!--                    <a href="http://www.guoguiyan.com/data/out/59/68944876-drama-wallpapers.jpg" target="_blank">-->
-                            <img src='{% static "images/Clubs.png" %}' alt="Drama" style="width:100%; height:250px">
-                            <div class="caption">
-                                <a href="{% url 'club-detail' club.id %}" style="text-decoration:none">
-                                    <h1> {{ club.name }}</h1>
-                                </a>
-                            </div>
-                            <!--                    </a>-->
-                        </div>
-                    </div>
-                    {% endfor %}
-                    {% else %}
-                        <div class="caption">
-                            <p>No events available</p>
-                        </div>
-                    {% endif %}
-                </div>
-            </div>
+				<div class="col-md-4">
+					<div class="restmenuwrap">
+						<div class="restitem clearfixs">
+							<div><img src='{% static "images/event11.jpg" %}' style="height: 150px;"></div>
+				  	</div>
+					</div>
         </div>
-    </div>
-<!-- </div> -->
+				<div class="col-md-4">
+					<div class="restmenuwrap">
+						<div class="restitem clearfixs">
+							<div><img src='{% static "images/event12.jpg" %}' style="height: 150px;"></div>
+				  	</div>
+					</div>
+        </div>
+				<div class="col-md-4">
+					<div class="restmenuwrap">
+						<div class="restitem clearfixs">
+							<div><img src='{% static "images/event13.jpg" %}' style="height: 150px;"></div>
+				  	</div>
+					</div>
+        </div>
+				<div class="col-md-4">
+					<div class="restmenuwrap">
+						<div class="restitem clearfixs">
+							<div><img src='{% static "images/event14.jpg" %}' style="height: 150px;"></div>
+				  	</div>
+					</div>
+        </div>
+				<div class="col-md-4">
+					<div class="restmenuwrap">
+						<div class="restitem clearfixs">
+							<div><img src='{% static "images/event15.jpg" %}' style="height: 150px;"></div>
+				  	</div>
+					</div>
+        </div>
+			</div>
+		</div>
+	</div>
+</section>
+
+	<!--gallery-->
+	<section class="eventss" id="events">
+		<div class="container">
+			<div class="heading text-center">
+				<img class="dividerline" src='{% static "images/sep.png" %}' alt="">
+				<h2>Events </h2>
+				<img class="dividerline" src='{% static "images/sep.png" %}' alt="">
+			</div>
+
+			<div id="grid-gallery" class="grid-gallery">
+					<section class="grid-wrap">
+						<ul class="grid">
+							{% if event_list %}
+									{% for event in event_list %}
+											{% if event.time_period == "Present" or event.time_period == "Future"%}
+													<li class="grid-sizer"></li><!-- for Masonry column width -->
+													<li>
+														<figure>
+															<img src= "{{ event.image.url }}" alt=""/>
+															<a href="{% url 'portal:detail' event.id %}" style="text-decoration:none">
+															   <figcaption><h3>{{ event.name }}</h3></figcaption>
+                              </a>
+														</figure>
+													</li>
+						 					{% endif %}
+									{% endfor %}
+							{% endif %}
+						</ul>
+					</section><!-- // end small images -->
+				</div>
+
+
+
+</div><!--wrapper end-->
+
+<!--Javascripts-->
+<script src="js/jquery.js"></script>
+<script src="js/modernizr.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/menustick.js"></script>
+<script src="js/parallax.js"></script>
+<script src="js/easing.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/masonry.js"></script>
+<script src="js/imgloaded.js"></script>
+<script src="js/classie.js"></script>
+<script src="js/colorfinder.js"></script>
+<script src="js/gridscroll.js"></script>
+<script src="js/contact.js"></script>
+<script src="js/common.js"></script>
+
+<script type="text/javascript">
+jQuery(function($) {
+$(document).ready( function() {
+  //enabling stickUp on the '.navbar-wrapper' class
+	$('.navbar-wrapper').stickUp({
+		parts: {
+		  0: 'banner',
+		  1: 'aboutus',
+		  2: 'specialties',
+		  3: 'gallery',
+		  4: 'feedback',
+		  5: 'contact'
+		},
+		itemClass: 'menuItem',
+		itemHover: 'active',
+		topMargin: 'auto'
+		});
+	});
+});
+</script>
 {% endblock %}
