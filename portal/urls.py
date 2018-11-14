@@ -10,5 +10,4 @@ urlpatterns = [
     path('<int:event_id>/teamregister', views.teamregister, name='teamregister'),
     path('<int:event_id>/winners', views.winner, name='winner'),
     path('winnerlist/', views.winnerlist, name='winnerlist'),
-
 ]

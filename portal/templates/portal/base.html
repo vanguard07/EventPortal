@@ -45,6 +45,7 @@
             <a class="navbar-brand" href="{% url 'home' %}">UEP</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
+            {% if request.user.is_authenticated %}
             <ul class="nav navbar-nav">
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'home' %}#events">Events</a></li>
@@ -53,10 +54,23 @@
                 <li><a href="{% url 'home'%}#photogallery">Gallery</a></li>
                 <li><a href="#footer">Contact</a></li>
             </ul>
-            {% if request.user.is_authenticated %}
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{% url 'logout' %}" class="btn navbar-right">
                     <span class="glyphicon glyphicon-log-out"></span> Logout </a>
+                </li>
+            </ul>
+            {% else %}
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'events:index'%}#">Home</a></li>
+                <li><a href="{% url 'events:index'%}#events">Events</a></li>
+                <li><a href="{% url 'events:index'%}#clubs">Clubs</a></li>
+                <li><a href="{% url 'events:winnerlist' %}">Winner</a></li>
+                <li><a href="{% url 'events:index'%}#photogallery">Gallery</a></li>
+                <li><a href="#footer">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'home' %}" class="btn navbar-right">
+                    <span class="glyphicon glyphicon-log-out"></span> Register </a>
                 </li>
             </ul>
             {% endif %}

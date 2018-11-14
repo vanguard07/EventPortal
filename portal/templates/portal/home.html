@@ -35,7 +35,6 @@
 		<div class="heading text-center">
 			<img class="dividerline" src='{% static "images/sep.png" %}'alt="">
 			<h2>About Clubs</h2>
-
 			<img class="dividerline" src='{% static "images/sep.png" %}' alt="">
 			<h3>Indian Institute of Information Technology, Vadodara has a strong tradition of student bodies and clubs that attract students from all disciplines, cutting across colleges, courses, and nationalities.<br/>There are technical clubs for the academically inclined; there are cultural clubs that give a student the opportunity to dabble in the fine arts, music, dance, theatre – everything that feeds the mind and spirit.<br/>There are several clubs that students can be a member of, take membership of in order to be part of the cultural landscape of the University.</h3>
 		</div>
@@ -44,9 +43,10 @@
 					{% for club in list_clubs %}
 			<div class="col-md-6">
 				<div class="papers text-center">
-					<img src="http://wowthemes.net/demo/leroy/img/dummies/18.jpg" alt=""><br/>
+					<img src="{{ club.image_url }}" alt=""><br/>
 					<a href="{% url 'club-detail' club.id %}" style="text-decoration:none">
 					<h4 class="notopmarg nobotmarg">{{club.name}}</h4>
+					</a>
 				</div>
 			</div>
 			{% endfor %}
@@ -115,7 +115,7 @@
 		<div class="container">
 			<div class="heading text-center">
 				<img class="dividerline" src='{% static "images/sep.png" %}' alt="">
-				<h2>Events </h2>
+				<h2>Upcoming Events</h2>
 				<img class="dividerline" src='{% static "images/sep.png" %}' alt="">
 			</div>
 
@@ -124,7 +124,7 @@
 						<ul class="grid">
 							{% if event_list %}
 									{% for event in event_list %}
-											{% if event.time_period == "Present" or event.time_period == "Future"%}
+											{% if event.time_period == "Future"%}
 													<li class="grid-sizer"></li><!-- for Masonry column width -->
 													<li>
 														<figure>

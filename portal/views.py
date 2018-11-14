@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.mail import EmailMultiAlternatives
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
+from django.core.mail import send_mail
 
 from .forms import MemberForm
 from .models import Event, Profile, Clubs, Teams, Winner
@@ -68,6 +69,10 @@ def EventRegister(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     if event.time_period() == "Future":
         event.attendees.add(user)
+        subject = event.name + " Registration"
+        msg = "You are successfully registered for the event: " + event.name + "."
+        recipient = [user.user.email]
+        send_mail(subject, msg, settings.EMAIL_HOST_USER, recipient, fail_silently=False)
     return redirect('portal:detail', event_id)
 
 
@@ -78,6 +83,10 @@ def eventunregister(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     if event.time_period() == "Future":
         event.attendees.remove(user)
+        subject = event.name + " Registration"
+        msg = "You are successfully unregistered for the event: " + event.name + "."
+        recipient = [user.user.email]
+        send_mail(subject, msg, settings.EMAIL_HOST_USER, recipient, fail_silently=False)
     return redirect("portal:detail", event_id)
 
 

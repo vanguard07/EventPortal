@@ -27,16 +27,25 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
 class Clubs(models.Model):
 
     name = models.CharField(max_length=100)
+    image = models.ImageField(null=True)
     about = models.CharField(max_length=150)
+    sec_image = models.ImageField(null=True)
+    jsec_image = models.ImageField(null=True)
     secretary = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='sec')
     joint_secretary = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='joint_sec')
 
     def __str__(self):
         return self.name
 
+    @property
+    def image_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
+
 
 class Event(models.Model):
     name = models.CharField(max_length=50)
+    image = models.ImageField(null=True)
     description = models.CharField(max_length=200)
     venue = models.CharField(max_length=100)
     start = models.DateTimeField(help_text='Please use the following format: <em>YYYY-MM-DD</em>.')

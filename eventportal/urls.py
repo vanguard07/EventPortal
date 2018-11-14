@@ -38,5 +38,5 @@ urlpatterns = [
     path('clubs/<int:club_id>', general_views.clubs_detail, name='club-detail'),
     url(r'^invite/(?P<team_id>\d+)/$', general_views.invite, name='invite'),
 ]
-urlpatterns += static(settings.MEDIA_URL , document_root=settings.MEDIA_ROOT )
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT )
 urlpatterns += staticfiles_urlpatterns()
