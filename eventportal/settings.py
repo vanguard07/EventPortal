@@ -133,6 +133,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
+MEDIA_URL ='/media/'
+MEDIA_ROOT =os.path.join(BASE_DIR,'portal/media')
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
@@ -166,8 +168,8 @@ AUTHENTICATION_BACKENDS = (
 django_heroku.settings(locals())
 
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config('G_KEY')
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config('G_SKEY')
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '566744292562-0m1ojqli1ad80veqq0eitdpol55bs51c.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'cLU_9gWNFSnJrG64GSBPdgNB'
 SOCIAL_AUTH_LOGIN_ERROR_URL = '/home'
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/home'
 SOCIAL_AUTH_RAISE_EXCEPTIONS = False

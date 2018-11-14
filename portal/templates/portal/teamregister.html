@@ -10,15 +10,16 @@
 <div class="container-fluid eventss">
     <div class="container">
         <div class="eventname">
-            <div class="row">
+            <!-- <div class="row"> -->
+              <div class="heading text-center">
                 <form method="post" action="{% url 'portal:teamregister' event.id %}">
                     {% csrf_token %}
                     {{form.as_p}}
-                    {% for i in range%}
-                    <label for="emailids">Enter member {{i}} email</label>
-                    <input type="email" name="emailid" id="emailids"><br>
-                    {% endfor %}
-                    <input type="submit" value="submit" type="button" class="btn btn-primary">
+                        {% for i in range%}
+                        <label for="emailids">Enter member {{i}} email</label>
+                        <input type="email" name="emailid" id="emailids"><br>
+                        {% endfor %}
+                        <input type="submit" value="submit" type="button" class="btn btn-primary" style="margin-top: 50px;">
                 </form>
             </div>
         </div>

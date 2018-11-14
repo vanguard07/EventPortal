@@ -23,11 +23,15 @@ def home(request):
     user_id = request.user.id
     user = get_object_or_404(Profile, pk=user_id)
     events = Event.objects.all().filter(attendees=user)
-    print(events)
+    list_clubs = Clubs.objects.all()
+    events_list = Event.objects.all()
+    print(events_list)
     context = {
         'first_name': user.user.first_name,
         'username': user.user.username,
-        'events': events
+        'events': events,
+        'list_clubs': list_clubs,
+        "event_list": events_list,
     }
     return render(request, 'portal/home.html', context)
 
@@ -74,7 +78,7 @@ def clubs_list(request):
     list_clubs = Clubs.objects.all()
     print(list_clubs)
     context = {'list_clubs': list_clubs}
-    return render(request, 'portal/clubslist.html', context)
+    return render(request, 'portal/clublist.html', context)
 
 
 def clubs_detail(request, club_id):
@@ -152,5 +156,4 @@ def winner(request, event_id):
 def winnerlist(request):
     events_list = Event.objects.all()
     context = {"event_list": events_list}
-    return render(request, "portal/winner-event.html", context)
-
+    return render(request, "portal/winners.html", context)

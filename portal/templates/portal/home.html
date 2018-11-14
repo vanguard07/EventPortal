@@ -3,142 +3,215 @@
 {% block title %} Dashboard{% endblock %}
 {% block content %}
 
-<div id="home" class="banner-area">
-    <div class="bg-image bg-parall overlay">        <!-- Backgound Image -->  </div>
-    <div class="home-wrapper">
-        <div class="col-md-10 col-md-offset-1 text-center">
-            <div class="home-content">
-                <div class="content" style="	bottom: 0; background: rgb(0, 0, 0); 	background: rgba(0, 0, 0, 0.5); color: #f1f1f1; width: 100%;	padding: 20px;">
-                    <h2 style="text-align:center; font-family:  'Allura'; color: white; font-size: 5vw; font-weight: 500;">
-                        Welcome {{ user.first_name }}</h2>
-                    <h2>your registered events: </h2>
-                    <div class="row">
-                        {% for event in events %}
-                        <div class=col-md-4 style="margin-top: 10px;"><a href="{% url 'portal:detail' event.id%}">{{ event.name }}</a></div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
+<!--wrapper start-->
+<div class="wrapper" id="wrapper">
+	<!--header-->
+	<div class="banner row" id="banner">
+		<div class="parallax text-center" style="background-image: url(http://mysemeneya.com/wp-content/uploads/2016/08/particles-background-02.jpg);">
+			<div class="parallax-pattern-overlay">
+				<div class="container text-center" style="height:600px;padding-top:170px;">
+					<div class="home-wrapper">
+	        <div class="col-md-10 col-md-offset-1 text-center">
+	            <div class="home-content">
+	                <div class="content" style="	bottom: 0; background: rgb(0, 0, 0); 	background: rgba(0, 0, 0, 0.5); color: #f1f1f1; width: 100%;	padding: 20px;">
+	                    <h2 style="text-align:center; color: white; font-size: 5vw; font-weight: 500;">
+	                        Welcome {{ user.first_name }}</h2>
+	                    <h2>your registered events: </h2>
+	                    <div class="row">
+	                        {% for event in events %}
+	                        <div class=col-md-4 style="margin-top: 10px;"><a href="{% url 'portal:detail' event.id%}"><h3 style="color:white;">{{ event.name }}</h3></a></div>
+	                        {% endfor %}
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--about us-->
+<section class="aboutus" id="clubs">
+	<div class="container">
+		<div class="heading text-center">
+			<img class="dividerline" src='{% static "images/sep.png" %}'alt="">
+			<h2>About Clubs</h2>
+
+			<img class="dividerline" src='{% static "images/sep.png" %}' alt="">
+			<h3>Indian Institute of Information Technology, Vadodara has a strong tradition of student bodies and clubs that attract students from all disciplines, cutting across colleges, courses, and nationalities.<br/>There are technical clubs for the academically inclined; there are cultural clubs that give a student the opportunity to dabble in the fine arts, music, dance, theatre – everything that feeds the mind and spirit.<br/>There are several clubs that students can be a member of, take membership of in order to be part of the cultural landscape of the University.</h3>
+		</div>
+		<div class="row">
+			{% if list_clubs %}
+					{% for club in list_clubs %}
+			<div class="col-md-6">
+				<div class="papers text-center">
+					<img src="http://wowthemes.net/demo/leroy/img/dummies/18.jpg" alt=""><br/>
+					<a href="{% url 'club-detail' club.id %}" style="text-decoration:none">
+					<h4 class="notopmarg nobotmarg">{{club.name}}</h4>
+				</div>
+			</div>
+			{% endfor %}
+			{% endif %}
+		</div>
+	</div>
+</section>
+
+	<!--specialties-->
+<section class="specialties" id="photogallery">
+	<div class="container">
+		<div class="heading text-center">
+			<img class="dividerline" src='{% static "images/sep.png" %}' alt="">
+			<h2>Gallery</h2>
+			<img class="dividerline" src='{% static "images/sep.png" %}' alt="">
+			<div class="row" Style="margin-top:100px;">
+				<div class="col-md-4">
+					<div class="restmenuwrap">
+						<div class="restitem clearfixs">
+							<div><img src="http://wowthemes.net/demo/leroy/img/dummies/1.jpg" style="height: 150px;"></div>
+				  	</div>
+					</div>
         </div>
+				<div class="col-md-4">
+					<div class="restmenuwrap">
+						<div class="restitem clearfixs">
+							<div><img src="https://rukminim1.flixcart.com/image/832/832/j26gmfk0/poster/d/g/k/medium-andblmusic2365-ananyadesigns-music-heavy-metal-original-imaek7n57wpzdhtr.jpeg?q=70" style="height: 150px;"></div>
+				  	</div>
+					</div>
+        </div>
+				<div class="col-md-4">
+					<div class="restmenuwrap">
+						<div class="restitem clearfixs">
+							<div><img src="https://www.edmdroid.com/wp-content/uploads/2015/08/hardwell-tomorrowland-2015.jpg" style="height: 150px;"></div>
+				  	</div>
+					</div>
+        </div>
+				<div class="col-md-4">
+					<div class="restmenuwrap">
+						<div class="restitem clearfixs">
+							<div><img src="https://www.henrysportsclub.com.au/site/wp-content/uploads/2014/10/Henry-Sports-Club-3.jpg" style="height: 150px;"></div>
+				  	</div>
+					</div>
+        </div>
+				<div class="col-md-4">
+					<div class="restmenuwrap">
+						<div class="restitem clearfixs">
+							<div><img src="https://www.monmouth.edu/mca/wp-content/uploads/sites/568/2018/06/metheader.jpg" style="height: 150px;"></div>
+				  	</div>
+					</div>
+        </div>
+				<div class="col-md-4">
+					<div class="restmenuwrap">
+						<div class="restitem clearfixs">
+							<div><img src="https://www.koreaboo.com/wp-content/uploads/2017/08/jimin09.jpg" style="height: 150px;"></div>
+				  	</div>
+					</div>
+        </div>
+			</div>
+		</div>
+	</div>
+</section>
+
+	<!--gallery-->
+	<section class="eventss" id="events">
+		<div class="container">
+			<div class="heading text-center">
+				<img class="dividerline" src='{% static "images/sep.png" %}' alt="">
+				<h2>Events </h2>
+				<img class="dividerline" src='{% static "images/sep.png" %}' alt="">
+			</div>
+
+			<div id="grid-gallery" class="grid-gallery">
+					<section class="grid-wrap">
+						<ul class="grid">
+							{% if event_list %}
+									{% for event in event_list %}
+											{% if event.time_period == "Present" or event.time_period == "Future"%}
+													<li class="grid-sizer"></li><!-- for Masonry column width -->
+													<li>
+														<figure>
+															<img src="http://wowthemes.net/demo/leroy/img/dummies/10.jpg" alt=""/>
+															<a href="{% url 'portal:detail' event.id %}" style="text-decoration:none">
+															   <figcaption><h3>{{ event.name }}</h3></figcaption>
+                              </a>
+														</figure>
+													</li>
+						 					{% endif %}
+									{% endfor %}
+							{% endif %}
+						</ul>
+					</section><!-- // end small images -->
+				</div>
+
+	<!--feedback-->
+
+
+	<!--feedback-->
+	<!-- <section class="contact" id="contact">
+	<div class="container">
+		<div class="heading">
+				<img class="dividerline" src="img/sep.png" alt="">
+				<h2>Hire Us</h2>
+				<img class="dividerline" src="img/sep.png" alt="">
+				<h3>Phasellus non dolor nibh. Nullam elementum tellus pretium feugiat.<br>
+				 Cras dictum tellus dui, vitae sollicitudin ipsum tincidunt in. Sed tincidunt tristique enim sed sollcitudin.</h3>
+		</div>
+	</div>
+	 <div class="container w960">
+      <div class="row">
+		<div class="done">
+			<div class="alert alert-success">
+				<button type="button" class="close" data-dismiss="alert">×</button>
+				Your message has been sent. Thank you!
+			</div>
+		</div>
+       <form method="post" action="contact.php" id="contactform">
+          <input name="name" type="text" class="contact col-md-6" placeholder="Your Name *" >
+          <input name="email" type="email" class="contact noMarr col-md-6" placeholder="E-mail address *" >
+          <textarea name="comment" class="contact col-md-12" placeholder="Message *"></textarea>
+          <input type="submit" id="submit" class="contact submit" value="Send message">
+        </form>
+      </div>
     </div>
-</div>
+	</section> -->
 
 
-<div class="ceo">
-    <div class="block">
 
-        <div class="row">
-            <div class="col-sm-4 "><a href="{% url 'club-list' %}" style="text-decoration:none"><h1>Clubs</h1></a></div>
-            <div class="col-sm-4 "><a href="{% url 'portal:index'%}"><h1>Events</h1></a></div>
-            <div class="col-sm-4 "><a href="#" style="text-decoration:none"><h1>Organiser</h1></a></div>
-        </div>
+</div><!--wrapper end-->
 
-    </div>
-</div>
-<div id="photogallery">
-    <div id="hom" class="banner-area">
-        <div class=" imj overlay" style="
-		                background-image:url('https://lyve.fm/wp-content/uploads/2018/09/Marshmello-Live-@-Amsterdam-Dance-Event.jpg');
-		                background-size:cover;
-		                height:100vh;
-		                width:100%;
-		                display:table;
+<!--Javascripts-->
+<script src="js/jquery.js"></script>
+<script src="js/modernizr.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/menustick.js"></script>
+<script src="js/parallax.js"></script>
+<script src="js/easing.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/masonry.js"></script>
+<script src="js/imgloaded.js"></script>
+<script src="js/classie.js"></script>
+<script src="js/colorfinder.js"></script>
+<script src="js/gridscroll.js"></script>
+<script src="js/contact.js"></script>
+<script src="js/common.js"></script>
 
-		                background-attachment:fixed;  ">
-        </div>
-        <div class="home-wrapper">
-            <div class="col-md-10 col-md-offset-1 text-center">
-                <div class="home-content">
-                    <h1 class="white-text">Gallery</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- <div class="container-fluid"> -->
-<div class="cont-section">
-    <div class="container">
-        <div class="thecom">
-            <div class="thecomletelineup">
-                <!-- <div class="col-6 col-md-4 col-lg-3 artist-single"> -->
-                <div class="artist-single">
-                    <div class="row">
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <figure class="imagegallery">
-                                <a href="#"> <img
-                                        src='http://www.glocalmind.com/blog/wp-content/uploads/2015/03/url.jpeg' alt="">
-                                </a>
-                                <a href="#" class="box-link"> <img src='{% static "image/box.jpg" %}' alt=""> </a>
-                            </figure>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <figure class="imagegallery">
-                                <a href="#"> <img
-                                        src='https://www.lfxevents.co.uk/wp-content/uploads/2017/11/Live-Music.jpg'
-                                        alt=""> </a>
-                                <a href="#" class="box-link"> <img src='{% static "image/box.jpg" %}' alt=""> </a>
-                            </figure>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <figure class="imagegallery">
-                                <a href="#"> <img
-                                        src='https://images-na.ssl-images-amazon.com/images/I/81tdS1MES2L._SX425_.jpg'
-                                        alt=""> </a>
-                                <a href="#" class="box-link"> <img src='{% static "image/box.jpg" %}' alt=""> </a>
-                            </figure>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <figure class="imagegallery">
-                                <a href="#"> <img
-                                        src='https://rukminim1.flixcart.com/image/832/832/j26gmfk0/poster/d/g/k/medium-andblmusic2365-ananyadesigns-music-heavy-metal-original-imaek7n57wpzdhtr.jpeg?q=70'
-                                        alt=""> </a>
-                                <a href="#" class="box-link"> <img src='{% static "image/box.jpg" %}' alt=""> </a>
-                            </figure>
-                        </div>
-                    </div>
-                </div>
-                <div class="artist">
-                    <div class="row">
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <figure class="imagegallery">
-                                <a href="#"> <img
-                                        src='https://images.damusic.be/multiped/original/b7fa0e04c45a625cc32c167d0c51c46d911eafdd.jpg'
-                                        alt=""> </a>
-                                <a href="#" class="box-link"> <img src='{% static "image/box.jpg" %}' alt=""
-                                                                   style="height:50px; width:50px;"> </a>
-                            </figure>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <figure class="imagegallery">
-                                <a href="#"> <img
-                                        src='http://wallpaperlepi.com/wp-content/uploads/2015/01/Man-Of-Rock-Music-Wallpaper.jpg'
-                                        alt=""> </a>
-                                <a href="#" class="box-link"> <img src='{% static "image/box.jpg" %}' alt=""
-                                                                   style="height:50px; width:50px;"> </a>
-                            </figure>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <figure class="imagegallery">
-                                <a href="#"> <img
-                                        src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzK96laa-ZbdVhX4jdDsWKk-YvmJ76jxO9yIxNF6LxiTJQOVZF'
-                                        alt=""> </a>
-                                <a href="#" class="box-link"> <img src='{% static "image/box.jpg" %}' alt=""
-                                                                   style="height:50px; width:50px;"> </a>
-                            </figure>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <figure class="imagegallery">
-                                <a href="#"> <img src='https://www.robertmosci.com/img/Nora_1.jpg' alt=""> </a>
-                                <a href="#" class="box-link"> <img src='{% static "image/box.jpg" %}' alt=""
-                                                                   style="height:50px; width:50px;"> </a>
-                            </figure>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+<script type="text/javascript">
+jQuery(function($) {
+$(document).ready( function() {
+  //enabling stickUp on the '.navbar-wrapper' class
+	$('.navbar-wrapper').stickUp({
+		parts: {
+		  0: 'banner',
+		  1: 'aboutus',
+		  2: 'specialties',
+		  3: 'gallery',
+		  4: 'feedback',
+		  5: 'contact'
+		},
+		itemClass: 'menuItem',
+		itemHover: 'active',
+		topMargin: 'auto'
+		});
+	});
+});
+</script>
 {% endblock %}

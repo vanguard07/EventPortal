@@ -19,6 +19,12 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from portal import views as general_views
 
+from django.conf import settings
+from django.views.generic import RedirectView
+from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+
 urlpatterns = [
     path('', general_views.land, name='land'),
     path('home/', general_views.home, name='home'),
@@ -32,3 +38,5 @@ urlpatterns = [
     path('clubs/<int:club_id>', general_views.clubs_detail, name='club-detail'),
     url(r'^invite/(?P<team_id>\d+)/$', general_views.invite, name='invite'),
 ]
+urlpatterns += static(settings.MEDIA_URL , document_root=settings.MEDIA_ROOT )
+urlpatterns += staticfiles_urlpatterns()

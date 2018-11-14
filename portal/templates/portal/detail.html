@@ -3,50 +3,72 @@
 {% block title %}Details{% endblock %}
 {% block content %}
 
-<div id="home" class="banner-area">
-    <!-- Backgound Image -->
-    <div class="bg-image bg-parallax overlay" style="background-image:url('http://technonewstrend.co/wp-content/uploads/2018/06/wallpapers-for-desktop-full-hd-lovely-hexagon-geometry-4k-laptop-full-hd-1080p-hd-4k-wallpapers-of-wallpapers-for-desktop-full-hd.jpg') ">
+<section class="aboutus" id="clubs">
+  <div class="container">
+    <div class="heading text-center">
+      <img class="dividerline" src='{% static "images/sep.png" %}'alt="">
+      <h2>Description</h2>
+      <img class="dividerline" src='{% static "images/sep.png" %}' alt="">
+      <!-- <h2>{{club.about}}</h2> -->
     </div>
-    <div class="eventdetails">
-        <div class="row" style="width: 100%;">
-
-              <div class="col-md-12">
-                  <div class="home-content">
-                        <div class="content" style="bottom: 0; background: rgb(0, 0, 0); 	background: rgba(0, 0, 0, 0.5); color: #f1f1f1; width: 100%;	padding: 20px;" >
-                            <h3>Event Name</h3>
-                            <p> {{ event.name }}</p>
-                            <h3>Event Description</h3>
-                            <p> {{ event.description }}</p>
-                            <h3>Event Starts at</h3>
-                            <p> {{ event.start }}</p>
-                            <h3>Event Ends at</h3>
-                            <p> {{ event.end }}</p>
-                            <h3>Event Organiser</h3>
-                            <p>{{ event.creator }}  </p>
-                            {% if user.profile not in attendees %}
-                                {% if event.team_size == 1 %}
-                                <form action="{% url 'portal:register' event.id %}" method="post">
-                                {% csrf_token %}
-                                <input type="submit" value="Register" type="button" class="btn btn-success">
-                                </form>
-                                {% else %}
-                                    <a href="{% url 'portal:teamregister' event.id %}">Team Register</a>
-                                {% endif %}
-                            {% else %}
-                              {% if event.time_period == "Future" %}
-                                <form action="{% url 'portal:unregister' event.id %}" method="post">
-                                {% csrf_token %}
-                                <input type="submit" value="Un-register" type="button" class="btn btn-danger">
-                                </form>
-                                {% endif %}
-                            {% endif %}
-
-                        </div>
-                    </div>
-                </div>
+    <div class="headings">
+        <h3>Event Name</h3>
+        <h4> {{ event.name }}</h4>
+        <h3>Event Description</h3>
+        <h4>Rules</h4>
+        <p> {{ event.description }}</p>
+        <h3>Event Starts at</h3>
+        <h4> {{ event.start }}</h4>
+        <h3>Event Ends at</h3>
+        <h4> {{ event.end }}</h4>
+        <h3>Event Organiser</h3>
+        <h4>{{ event.creator }}  </h4>
+        {% if event.time_period == "Past" %}
+        <div class="heading text-center">
+          <img class="dividerline" src='{% static "images/sep.png" %}'alt="">
+          <h2>Winner</h2>
+          <img class="dividerline" src='{% static "images/sep.png" %}' alt="">
         </div>
-    </div>
-</div>
+        <center>
+           <table>
+             <tr><td><h4>First:</h4></td><td><h4>Payal</h4></td></tr>
+             <tr><td><h4>Second:</h4></td><td><h4>Payal</h4></td></tr>
+             <tr><td><h4>Third:</h4></td><td><h4>Payal</h4></td></tr>
+           </table>
+        </center>
+        {% else %}
+
+            {% if user.profile not in attendees %}
+                {% if event.team_size == 1 %}
+                <form action="{% url 'portal:register' event.id %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Register" type="button" class="btn btn-success" >
+                </form>
+                {% else %}
+                    <a href="{% url 'portal:teamregister' event.id %}"><div style="background:#cc580c; margin-top: 50px; height: 40px; width:150px; color:white; font-size: 20px; text-align:center; border-radius: 20px;" ><h5 style="padding-top: 10px;">Team Register<h5></div></a>
+                {% endif %}
+            {% else %}
+              {% if event.time_period == "Future" %}
+                <form action="{% url 'portal:unregister' event.id %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Un-register" type="button" class="btn btn-danger">
+                </form>
+              {% endif %}
+
+              {% if event.time_period == "Past" %}
+              <div class="heading text-center">
+                <img class="dividerline" src='{% static "images/sep.png" %}'alt="">
+                <h2>Winner</h2>
+                <img class="dividerline" src='{% static "images/sep.png" %}' alt="">
+                <!-- <h2>{{club.about}}</h2> -->
+              </div>
+              {% endif %}
+            {% endif %}
+          {% endif %}
+      </div>
+   </div>
+</section>
+
 <script>
 function openNav() {
     document.getElementById("mySidenav").style.display = "block";
@@ -57,4 +79,3 @@ function closeNav() {
 }
 </script>
 {% endblock %}
-

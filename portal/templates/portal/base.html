@@ -11,7 +11,18 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <meta name="author" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href=" {% static 'css/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
 
     <link href='https://fonts.googleapis.com/css?family=Allura' rel='stylesheet'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -19,121 +30,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <style>
 
-        /*------------------------------------------------------------
-        # site-footer
-        ------------------------------------------------------------*/
-        .site-footer {
-            position: relative;
-            padding: 40px 0 30px;
-            background-size: cover;
-            opacity: 0.9;
-        }
-
-        .site-footer::before {
-            position: absolute;
-            content: " ";
-            height: 100%;
-            width: 100%;
-            z-index: 3;
-            background: hsla(0, 0%, 5%, 0.7);
-            top: 0;
-            left: 0;
-        }
-
-        /* .site-footer .footer-cover-title {
-            min-height: 480px;
-            width: 100%;
-        } */
-
-        .site-footer .footer-cover-title h2 {
-            font-size: 7vw;
-            font-weight: 800;
-            line-height: 1;
-            margin-bottom: 0;
-            text-align: center;
-            color: hsl(0, 0%, 100%);
-            mix-blend-mode: overlay;
-            z-index: 2;
-        }
-
-        /*------------------------------------------------------------
-        ## .site-footer footer-content-wrapper
-        ------------------------------------------------------------*/
-
-        .footer-content-wrapper {
-            position: absolute;
-            width: 100%;
-            top: 50%;
-            -webkit-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-            left: 0;
-            right: 0;
-            z-index: 4;
-
-            padding: 6px 0;
-            text-align: center;
-        }
-
-        .
-        .footer-content-wrapper .flex {
-            flex-direction: column;
-        }
-
-        .footer-content-wrapper .entry-title {
-            text-align: center;
-            margin-top: 25px;
-        }
-
-        .footer-content-wrapper .entry-title a {
-            font-size: 52px;
-            font-weight: 700;
-            color: hsl(0, 0%, 100%);
-            line-height: 1;
-            text-decoration: none;
-        }
-
-        @media screen and (min-width: 576px) {
-            .footer-content-wrapper .entry-title a {
-                font-size: 100px;
-            }
-        }
-
-        .footer-content-wrapper .entry-mail {
-            margin-top: 16px;
-            font-size: 16px;
-            font-weight: 700;
-            color: hsl(0, 0%, 100%);
-        }
-
-        .footer-content-wrapper .entry-mail a {
-            text-decoration: none;
-            color: hsl(0, 0%, 100%);
-        }
-
-        .footer-content-wrapper .copyright-info {
-            margin-top: 20px;
-            font-size: 12px;
-            color: hsl(0, 0%, 100%);
-        }
-
-        .footer-content-wrapper .footer-social {
-            margin-top: 10px;
-        }
-
-        .footer-content-wrapper .footer-social .flex {
-            flex-direction: row !important;
-        }
-
-        .footer-content-wrapper .footer-social a {
-            padding: 5px 16px;
-            font-size: 20px;
-            color: hsl(0, 0%, 100%);
-        }
-
-    </style>
 </head>
 <body>
 
@@ -150,11 +47,11 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'events:index' %}">Events</a></li>
-                <li><a href="{% url 'club-list' %}">Clubs</a></li>
+                <li><a href="{% url 'home' %}#events">Events</a></li>
+                <li><a href="{% url 'home' %}#clubs">Clubs</a></li>
                 <li><a href="{% url 'events:winnerlist' %}">Winner</a></li>
                 <li><a href="{% url 'home'%}#photogallery">Gallery</a></li>
-                <li><a href="#foot">Contact</a></li>
+                <li><a href="#footer">Contact</a></li>
             </ul>
             {% if request.user.is_authenticated %}
             <ul class="nav navbar-nav navbar-right">
@@ -171,33 +68,23 @@
 {% block content %}
 {% endblock %}
 
-<div id="foot">
-    <footer class="site-footer"
-            style=" background-image:url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=be465b88fdf21a6e05ab522458452344&w=1000&q=80'); height: 300px;">
-        <div class="footer-cover-title flex justify-content-center align-items-center">
-            <h2>Unified Event Portal</h2>
-        </div>
-        <div class="footer-content-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12" style="width:100%; ">
-                        <div class="entry-title">
-                            <a href="#">Unified Event Portal</a>
-                        </div><!-- entry-title -->
-                        <div class="entry-mail">
-                            <a href="#">Software Engineering Project</a>
-                        </div><!-- .entry-mail -->
-                        <div class="footer-social">
-                            <a href="#"><i class="fa fa-google"></i></a>
-                            <a href="#"><i class="fa fa-facebook-f"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                        </div><!-- footer-social -->
-                    </div><!-- col -->
-                </div><!-- row -->
-            </div><!-- container -->
-        </div><!-- footer-content-wrapper -->
-    </footer><!-- site-footer -->
+<section class="footer" id="footer">
+<p class="text-center">
+  <a href="#wrapper" class="gototop"><i class="fa fa-angle-double-up fa-2x"></i></a>
+</p>
+<div class="container">
+  <ul>
+    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+    <li><a href="#"><i class="fa fa-google"></i></a></li>
+
+  </ul>
+  <!-- <p>
+    &copy; Copyright Your Website<br>
+     Theme by <a href="http://www.wowthemes.net">WowThemes.Net</a>
+  </p> -->
 </div>
+</section>
 
 <script>
     function openNav() {

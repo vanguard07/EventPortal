@@ -3,18 +3,29 @@
 {% block title %} Winners {% endblock %}
 {% block content %}
 
-<div id="home" class="banner-area">
-	<!-- Backgound Image -->
-	<div class="bg-image bg-parallax overlay" style="background-image:url({% static "images/drama1.jpg"%})"></div>
-	<div class="home-wrapper">
-		<div class="col-md-10 col-md-offset-1 text-center">
-			<div class="home-content">
-				  <h1 class="white-text">Winners</h1>
+<section class="aboutus" id="clubs">
+  <div class="container">
+    <div class="heading text-center">
+      <img class="dividerline" src='{% static "images/sep.png" %}'alt="">
+      <h2>Winners</h2>
+      <img class="dividerline" src='{% static "images/sep.png" %}' alt="">
+			<div class="raw">
+
+					   <div class="col-md-3"><h2>Event name<h2></div>
+						 <div class="col-md-3"><h2>First <h2></div>
+						 <div class="col-md-3"><h2>Second<h2></div>
+						 <div class="col-md-3"><h2>Third<h2></div>
+
+						 <div class="col-md-3"><h3>Event name<h3></div>
+						 <div class="col-md-3"><h3>First <h3></div>
+						 <div class="col-md-3"><h3>Second<h3></div>
+						 <div class="col-md-3"><h3>Third<h3></div>
 			</div>
 		</div>
 	</div>
-</div>
-<div class="container-fluid eventss">
+</section>
+
+<!-- <div class="container-fluid eventss">
     <div class="container">
         {% for user in winners %}
         <div class="col-sm-4">
@@ -30,5 +41,5 @@
 
         {% endfor %}
     </div>
-</div>
+</div> -->
 {% endblock %}
