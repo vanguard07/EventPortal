@@ -45,12 +45,19 @@ def EventList(request):
 def EventDetail(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     attendees = event.attendees.all()
-    if request.method == 'POST':
-        print(event.id)
-    context = {
-        'event': event,
-        'attendees': attendees,
-    }
+    if event.time_period() == "Past":
+        winners = Winner.objects.all().filter(event=event_id)
+        print(winners)
+        context = {
+            'event': event,
+            'attendees': attendees,
+            'winners': winners,
+        }
+    else:
+        context = {
+            'event': event,
+            'attendees': attendees,
+        }
     return render(request, 'portal/detail.html', context)
 
 
@@ -154,6 +161,15 @@ def winner(request, event_id):
 
 
 def winnerlist(request):
-    events_list = Event.objects.all()
-    context = {"event_list": events_list}
+    events_list_ids = []
+    winner_list = []
+    for event in Event.objects.all():
+        if event.time_period() == "Past":
+            events_list_ids.append(event.id)
+            winner_list.append(Winner.objects.filter(event=event.id))
+    events_list = Event.objects.filter(id__in=events_list_ids)
+    context = {
+        "events_list": events_list,
+        "winner_list": winner_list,
+    }
     return render(request, "portal/winners.html", context)

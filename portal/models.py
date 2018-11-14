@@ -27,7 +27,6 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
 class Clubs(models.Model):
 
     name = models.CharField(max_length=100)
-    # image=models.ImageField()
     about = models.CharField(max_length=150)
     secretary = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='sec')
     joint_secretary = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='joint_sec')

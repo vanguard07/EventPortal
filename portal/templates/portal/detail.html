@@ -6,10 +6,9 @@
 <section class="aboutus" id="clubs">
   <div class="container">
     <div class="heading text-center">
-      <img class="dividerline" src='{% static "images/sep.png" %}'alt="">
+      <img class="dividerline" src='{% static "images/sep.png" %}' alt="X">
       <h2>Description</h2>
-      <img class="dividerline" src='{% static "images/sep.png" %}' alt="">
-      <!-- <h2>{{club.about}}</h2> -->
+      <img class="dividerline" src='{% static "images/sep.png" %}' alt="Y">
     </div>
     <div class="headings">
         <h3>Event Name</h3>
@@ -26,46 +25,47 @@
         {% if event.time_period == "Past" %}
         <div class="heading text-center">
           <img class="dividerline" src='{% static "images/sep.png" %}'alt="">
-          <h2>Winner</h2>
+          <h2>Winners</h2>
           <img class="dividerline" src='{% static "images/sep.png" %}' alt="">
         </div>
+            {% if winners %}
+            {% for winner in winners %}
         <center>
            <table>
-             <tr><td><h4>First:</h4></td><td><h4>Payal</h4></td></tr>
-             <tr><td><h4>Second:</h4></td><td><h4>Payal</h4></td></tr>
-             <tr><td><h4>Third:</h4></td><td><h4>Payal</h4></td></tr>
+             <tr><td><h4>First:</h4></td><td><h4>{{ winner.first }}</h4></td></tr>
+             <tr><td><h4>Second:</h4></td><td><h4>{{ winner.second }}</h4></td></tr>
+             <tr><td><h4>Third:</h4></td><td><h4>{{ winner.third }}</h4></td></tr>
            </table>
         </center>
-        {% else %}
-
-
-            {% if user.profile not in attendees %}
-                {% if event.team_size == 1 %}
-                <form action="{% url 'portal:register' event.id %}" method="post">
-                {% csrf_token %}
-                <input type="submit" value="Register" type="button" class="btn btn-success" >
-                </form>
-                {% else %}
-                    <a href="{% url 'portal:teamregister' event.id %}"><div style="background:#cc580c; margin-top: 50px; height: 40px; width:150px; color:white; font-size: 20px; text-align:center; border-radius: 20px;" ><h5 style="padding-top: 10px;">Team Register<h5></div></a>
-                {% endif %}
+            {% endfor %}
             {% else %}
-              {% if event.time_period == "Future" %}
+            <div class="alert alert-warning" role="alert">
+            Yet to be declared.
+            </div>
+            {% endif %}
+        {% endif %}
+        {% if event.time_period == "Present" %}
+            <div class="alert alert-warning" role="alert">
+            Registrations are closed.
+            </div>
+        {% endif %}
+        {% if event.time_period == "Future" %}
+            {% if user.profile not in attendees %}
+                    {% if event.team_size == 1 %}
+                    <form action="{% url 'portal:register' event.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Register" type="button" class="btn btn-success" >
+                    </form>
+                    {% else %}
+                    <a href="{% url 'portal:teamregister' event.id %}"><div style="background:#cc580c; margin-top: 50px; height: 40px; width:150px; color:white; font-size: 20px; text-align:center; border-radius: 20px;" ><h5 style="padding-top: 10px;">Team Register<h5></div></a>
+                    {% endif %}
+            {% else %}
                 <form action="{% url 'portal:unregister' event.id %}" method="post">
                 {% csrf_token %}
                 <input type="submit" value="Un-register" type="button" class="btn btn-danger">
                 </form>
               {% endif %}
-
-              {% if event.time_period == "Past" %}
-              <div class="heading text-center">
-                <img class="dividerline" src='{% static "images/sep.png" %}'alt="">
-                <h2>Winner</h2>
-                <img class="dividerline" src='{% static "images/sep.png" %}' alt="">
-                <!-- <h2>{{club.about}}</h2> -->
-              </div>
-              {% endif %}
             {% endif %}
-          {% endif %}
       </div>
    </div>
 </section>
