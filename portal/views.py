@@ -90,13 +90,6 @@ def eventunregister(request, event_id):
     return redirect("portal:detail", event_id)
 
 
-def clubs_list(request):
-    list_clubs = Clubs.objects.all()
-    print(list_clubs)
-    context = {'list_clubs': list_clubs}
-    return render(request, 'portal/clublist.html', context)
-
-
 def clubs_detail(request, club_id):
     club = get_object_or_404(Clubs, pk=club_id)
     event = Event.objects.all().filter(club=club_id)
@@ -159,26 +152,13 @@ def invite(request, team_id):
     return render(request, 'home')
 
 
-def winner(request, event_id):
-    event = get_object_or_404(Event, pk=event_id)
-    winners = Winner.objects.all().filter(event=event_id)
-    context = {
-        'winners': winners,
-        'event': event,
-    }
-    return render(request, 'portal/winners.html', context)
-
-
 def winnerlist(request):
     events_list_ids = []
-    winner_list = []
     for event in Event.objects.all():
         if event.time_period() == "Past":
             events_list_ids.append(event.id)
-            winner_list.append(Winner.objects.filter(event=event.id))
     events_list = Event.objects.filter(id__in=events_list_ids)
     context = {
         "events_list": events_list,
-        "winner_list": winner_list,
     }
     return render(request, "portal/winners.html", context)

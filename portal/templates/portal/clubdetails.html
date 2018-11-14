@@ -3,82 +3,83 @@
 {% block title %}{% endblock %}
 {% block content %}
 <div class="wrapper" id="wrapper">
-	<!--header-->
-	<div class="banner row" id="banner">
-		<div class="parallax text-center" style="background-image: url(http://mysemeneya.com/wp-content/uploads/2016/08/particles-background-02.jpg);">
-			<div class="parallax-pattern-overlay">
-				<div class="container text-center" style="height:600px;padding-top:170px;">
-					<div class="home-wrapper">
-	        <div class="col-md-10 col-md-offset-1 text-center">
-	            <div class="home-content">
-	                <div class="content" style="	bottom: 0; background: rgb(0, 0, 0); 	background: rgba(0, 0, 0, 0.5); color: #f1f1f1; width: 100%;	padding: 20px;">
-	                    <h2 style="text-align:center; color: white; font-size: 8vw; font-weight: 500;">
-	                       {{ club.name }}
-											 </h2>
-	                </div>
-	            </div>
-	        </div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <!--header-->
+    <div class="banner row" id="banner">
+        <div class="parallax text-center"
+             style="background-image: url(http://mysemeneya.com/wp-content/uploads/2016/08/particles-background-02.jpg);">
+            <div class="parallax-pattern-overlay">
+                <div class="container text-center" style="height:600px;padding-top:170px;">
+                    <div class="home-wrapper">
+                        <div class="col-md-10 col-md-offset-1 text-center">
+                            <div class="home-content">
+                                <div class="content"
+                                     style="	bottom: 0; background: rgb(0, 0, 0); 	background: rgba(0, 0, 0, 0.5); color: #f1f1f1; width: 100%;	padding: 20px;">
+                                    <h2 style="text-align:center; color: white; font-size: 8vw; font-weight: 500;">
+                                        {{ club.name }}
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-	<section class="aboutus" id="clubs">
-		<div class="container">
-			<div class="heading text-center">
-				<img class="dividerline" src='{% static "images/sep.png" %}'alt="">
-				<h2>Description</h2>
-				<img class="dividerline" src='{% static "images/sep.png" %}' alt="">
-				<h3>{{club.about}}</h3>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="papers text-center">
-						<img src="{{ club.sec_image.url }}" alt=""><br/>
-						<h4 class="notopmarg nobotmarg">{{club.secretary}}</h4>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="papers text-center">
-						<img src="{{ club.jsec_image.url }}" alt=""><br/>
-						<h4 class="notopmarg nobotmarg">{{club.joint_secretary}}</h4>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+        <section class="aboutus" id="clubs">
+            <div class="container">
+                <div class="heading text-center">
+                    <img class="dividerline" src='{% static "images/sep.png" %}' alt="">
+                    <h2>Description</h2>
+                    <img class="dividerline" src='{% static "images/sep.png" %}' alt="">
+                    <h3>{{club.about}}</h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="papers text-center">
+                            <img src="{{ club.sec_image.url }}" alt=""><br/>
+                            <h4 class="notopmarg nobotmarg">{{club.secretary}}</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="papers text-center">
+                            <img src="{{ club.jsec_image.url }}" alt=""><br/>
+                            <h4 class="notopmarg nobotmarg">{{club.joint_secretary}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-	<div class="row" style=" margin-bottom: 6 0px; margin-top: 60px;">
-		<div class="heading headings text-center">
-			<div class="col-md-4">
-					 <center><h2>Ongoing events</h2>
-							 {% for record in event %}
-								{% if record.time_period == "Present"%}
-									<a href="{% url 'portal:detail' record.id %}"><h3 style="color: black;">{{record.name}}</h3></a>
-								{% endif %}
-							{% endfor %}
-					</center>
-			</div>
-			<div class="col-md-4">
-				 <center>	<h2>Upcoming Events</h2>
-						 {% for record in event %}
-							 {% if record.time_period == "Future"%}
-								 <a href="{% url 'portal:detail' record.id %}"><h3 style="color: black;">{{record.name}}</h3></a>
-							 {% endif %}
-						 {% endfor %}
-				 </center>
-			</div>
-			<div class="col-md-4">
-					<center>
-						<h2>Past Events</h2>
-						{% for record in event %}
-							{% if record.time_period == "Past"%}
-								<a href="{% url 'portal:detail' record.id %}"><h3 style="color: black;">{{record.name}}</h3></a>
-							{% endif %}
-						{% endfor %}
-					</center>
-			</div>
-	  </div>
-	</div>
-
-{% endblock %}
+        <div class="row" style=" margin-bottom: 6 0px; margin-top: 60px;">
+            <div class="heading headings text-center">
+                <div class="col-md-4">
+                    <center><h2>Ongoing events</h2>
+                        {% for record in event %}
+                        {% if record.time_period == "Present"%}
+                        <a href="{% url 'portal:detail' record.id %}"><h3 style="color: black;">{{record.name}}</h3></a>
+                        {% endif %}
+                        {% endfor %}
+                    </center>
+                </div>
+                <div class="col-md-4">
+                    <center><h2>Upcoming Events</h2>
+                        {% for record in event %}
+                        {% if record.time_period == "Future"%}
+                        <a href="{% url 'portal:detail' record.id %}"><h3 style="color: black;">{{record.name}}</h3></a>
+                        {% endif %}
+                        {% endfor %}
+                    </center>
+                </div>
+                <div class="col-md-4">
+                    <center>
+                        <h2>Past Events</h2>
+                        {% for record in event %}
+                        {% if record.time_period == "Past"%}
+                        <a href="{% url 'portal:detail' record.id %}"><h3 style="color: black;">{{record.name}}</h3></a>
+                        {% endif %}
+                        {% endfor %}
+                    </center>
+                </div>
+            </div>
+        </div>
+        {% endblock %}

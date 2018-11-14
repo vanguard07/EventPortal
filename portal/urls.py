@@ -8,6 +8,6 @@ urlpatterns = [
     path('<int:event_id>/register', views.EventRegister, name='register'),
     path('<int:event_id>/unregister', views.eventunregister, name='unregister'),
     path('<int:event_id>/teamregister', views.teamregister, name='teamregister'),
-    path('<int:event_id>/winners', views.winner, name='winner'),
+    # path('<int:event_id>/winners', views.winner, name='winner'),
     path('winnerlist/', views.winnerlist, name='winnerlist'),
 ]

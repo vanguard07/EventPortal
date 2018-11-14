@@ -4,80 +4,94 @@
 {% block content %}
 
 <section class="aboutus" id="clubs">
-  <div class="container">
-    <div class="heading text-center">
-      <img class="dividerline" src='{% static "images/sep.png" %}' alt="X">
-      <h2>Description</h2>
-      <img class="dividerline" src='{% static "images/sep.png" %}' alt="Y">
-    </div>
-    <div class="headings">
-        <h3>Event Name</h3>
-        <h4> {{ event.name }}</h4>
-        <h3>Event Description</h3>
-        <h4>Rules</h4>
-        <p> {{ event.description }}</p>
-        <h3>Event Starts at</h3>
-        <h4> {{ event.start }}</h4>
-        <h3>Event Ends at</h3>
-        <h4> {{ event.end }}</h4>
-        <h3>Event Organiser</h3>
-        <h4>{{ event.creator }}  </h4>
+    <div class="container">
         {% if event.time_period == "Past" %}
         <div class="heading text-center">
-          <img class="dividerline" src='{% static "images/sep.png" %}'alt="">
-          <h2>Winners</h2>
-          <img class="dividerline" src='{% static "images/sep.png" %}' alt="">
+            <img class="dividerline" src='{% static "images/sep.png" %}' alt="">
+            <h2>Winners</h2>
+            <img class="dividerline" src='{% static "images/sep.png" %}' alt="">
         </div>
-            {% if winners %}
-            {% for winner in winners %}
+        {% if winners %}
+        {% for winner in winners %}
         <center>
-           <table>
-             <tr><td><h4>First:</h4></td><td><h4>{{ winner.first }}</h4></td></tr>
-             <tr><td><h4>Second:</h4></td><td><h4>{{ winner.second }}</h4></td></tr>
-             <tr><td><h4>Third:</h4></td><td><h4>{{ winner.third }}</h4></td></tr>
-           </table>
+            <table>
+                <tr>
+                    <td><h4>First:</h4></td>
+                    <td><h4>{{ winner.first }}</h4></td>
+                </tr>
+                <tr>
+                    <td><h4>Second:</h4></td>
+                    <td><h4>{{ winner.second }}</h4></td>
+                </tr>
+                <tr>
+                    <td><h4>Third:</h4></td>
+                    <td><h4>{{ winner.third }}</h4></td>
+                </tr>
+            </table>
         </center>
-            {% endfor %}
-            {% else %}
-            <div class="alert alert-warning" role="alert">
+        {% endfor %}
+        {% else %}
+        <div class="alert alert-warning" role="alert">
             Yet to be declared.
+        </div>
+        {% endif %}
+        {% endif %}
+        <div class="heading text-center">
+            <img class="dividerline" src='{% static "images/sep.png" %}' alt="X">
+            <h2>Description</h2>
+            <img class="dividerline" src='{% static "images/sep.png" %}' alt="Y">
+        </div>
+        <div class="headings" style="font-family: 'Lato', sans-serif; font-size: large;">
+            <h3>Event Name</h3>
+            <h4> {{ event.name }}</h4>
+            <h3>Event Description</h3>
+            <p> {{ event.description }}</p>
+            <h3>Event Starts at</h3>
+            <h4> {{ event.start }}</h4>
+            <h3>Event Ends at</h3>
+            <h4> {{ event.end }}</h4>
+            <h3>Event Organiser</h3>
+            <h4>{{ event.creator }} </h4>
+            {% if event.time_period == "Present" %}
+            <div class="alert alert-warning" role="alert">
+                Registrations are closed.
             </div>
             {% endif %}
-        {% endif %}
-        {% if event.time_period == "Present" %}
-            <div class="alert alert-warning" role="alert">
-            Registrations are closed.
-            </div>
-        {% endif %}
-        {% if event.time_period == "Future" %}
+            {% if event.time_period == "Future" %}
             {% if user.profile not in attendees %}
-                    {% if event.team_size == 1 %}
-                    <form action="{% url 'portal:register' event.id %}" method="post">
-                    {% csrf_token %}
-                    <input type="submit" value="Register" type="button" class="btn btn-success" >
-                    </form>
-                    {% else %}
-                    <a href="{% url 'portal:teamregister' event.id %}"><div style="background:#cc580c; margin-top: 50px; height: 40px; width:150px; color:white; font-size: 20px; text-align:center; border-radius: 20px;" ><h5 style="padding-top: 10px;">Team Register<h5></div></a>
-                    {% endif %}
+            {% if event.team_size == 1 %}
+            <div>
+                <form action="{% url 'portal:register' event.id %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Register" type="button" class="btn btn-success">
+                </form>
+            </div>
             {% else %}
-                <form action="{% url 'portal:unregister' event.id %}" method="post">
+            <a href="{% url 'portal:teamregister' event.id %}">
+                <div style="background:#cc580c; margin-top: 50px; height: 40px; width:150px; color:white; font-size: 20px; text-align:center; border-radius: 20px;">
+                    <h5 style="padding-top: 10px;">Team Register</h5>
+                </div>
+            </a>
+            {% endif %}
+            {% else %}
+            <form action="{% url 'portal:unregister' event.id %}" method="post">
                 {% csrf_token %}
                 <input type="submit" value="Un-register" type="button" class="btn btn-danger">
-                </form>
-              {% endif %}
+            </form>
             {% endif %}
-      </div>
-   </div>
+            {% endif %}
+        </div>
+    </div>
 </section>
 
 
 <script>
-function openNav() {
-    document.getElementById("mySidenav").style.display = "block";
-}
+    function openNav() {
+        document.getElementById("mySidenav").style.display = "block";
+    }
 
-function closeNav() {
-    document.getElementById("mySidenav").style.display = "none";
-}
+    function closeNav() {
+        document.getElementById("mySidenav").style.display = "none";
+    }
 </script>
 {% endblock %}

@@ -11,47 +11,19 @@
             <h2>Winners</h2>
             <img class="dividerline" src='{% static "images/sep.png" %}' alt="">
             <div class="raw">
-                <div class="col-md-3"><h2>Event name</h2></div>
-                <div class="col-md-3"><h2>First </h2></div>
-                <div class="col-md-3"><h2>Second</h2></div>
-                <div class="col-md-3"><h2>Third</h2></div>
+                <div class="col-md-4"><h2>Event name</h2></div>
+                <div class="col-md-4"><h2>Start</h2></div>
+                <div class="col-md-4"><h2>End</h2></div>
                 {% for event in events_list %}
-                <div class="col-md-3"><h3>{{ event.name }}</h3></div>
-                    {% if winner in winner_list.forloop.counter %}
-                <div class="col-md-3"><h3>{{winner.first}}</h3></div>
-                <div class="col-md-3"><h3>{{winner.second}}</h3></div>
-                <div class="col-md-3"><h3>{{winner.third}}</h3></div>
-                    {% else %}
-                    <div class="alert alert-warning col-md-9" role="alert">
-                    To be declared
-                    </div>
-                    {% endif %}
+                <div class="col-md-4">
+                    <h5><a href="{% url 'portal:detail' event.id %}" class="btn btn-info">{{ event.name }}</a></h5>
+                </div>
+                <div class="col-md-4"><h3>{{event.start}}</h3></div>
+                <div class="col-md-4"><h3>{{event.end}}</h3></div>
                 {% endfor %}
             </div>
         </div>
     </div>
 </section>
 
-<!-- <div class="container-fluid eventss">
-
-    <div class="container">
-        <div class="col-sm-4">
-            <img src="{%static "images/trophy.png"%}" alt="trophy" style="width:100%">
-        </div>
-        <div class="col-sm-4" style="display: flex; justify-content: center; margin-top: 100px;">
-            <div class="card" style="width: 18rem;">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item" style="background-color: black; color: white">First: {{user.first}}</li>
-                <li class="list-group-item" style="background-color: black; color: white">Second: {{user.second}}</li>
-                <li class="list-group-item" style="background-color: black; color: white">Third: {{user.third}}</li>
-              </ul>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <img src="{%static "images/trophy.png"%}" alt="trophy" style="width:100%">
-        </div>
-
-    </div>
-
-</div> -->
 {% endblock %}
