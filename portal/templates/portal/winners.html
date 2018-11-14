@@ -2,6 +2,7 @@
 {% load static %}
 {% block title %} Winners {% endblock %}
 {% block content %}
+<<<<<<< HEAD
 
 <section class="aboutus" id="clubs">
   <div class="container">
@@ -26,20 +27,57 @@
 </section>
 
 <!-- <div class="container-fluid eventss">
+=======
+{% for user in winners %}
+<div id="home" class="banner-area">
+	<!-- Backgound Image -->
+	<div class="bg-image bg-parallax overlay" style="background-image:url({% static "images/drama1.jpg"%})"></div>
+	<div class="home-wrapper">
+		<div class="col-md-10 col-md-offset-1 text-center">
+			<div class="home-content">
+				  <h1 class="white-text">Winners of {{event.name}}</h1>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid eventss" style="background-color: #111111">
+>>>>>>> cc68c6d0bcc1cf04edbc0e115c85941f0a9770ad
     <div class="container">
-        {% for user in winners %}
         <div class="col-sm-4">
+            <img src="{%static "images/trophy.png"%}" alt="trophy" style="width:100%">
+        </div>
+        <div class="col-sm-4" style="display: flex; justify-content: center; margin-top: 100px;">
             <div class="card" style="width: 18rem;">
-            <h5 class="card-title">Winners for event {{event.name}}</h5>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">First: {{user.first}}</li>
-                <li class="list-group-item">Second: {{user.second}}</li>
-                <li class="list-group-item">Third: {{user.third}}</li>
+                <li class="list-group-item" style="background-color: black; color: white">First: {{user.first}}</li>
+                <li class="list-group-item" style="background-color: black; color: white">Second: {{user.second}}</li>
+                <li class="list-group-item" style="background-color: black; color: white">Third: {{user.third}}</li>
               </ul>
             </div>
         </div>
+        <div class="col-sm-4">
+            <img src="{%static "images/trophy.png"%}" alt="trophy" style="width:100%">
+        </div>
 
-        {% endfor %}
     </div>
+<<<<<<< HEAD
 </div> -->
 {% endblock %}
+=======
+</div>
+{% empty %}
+<div id="home" class="banner-area">
+	<!-- Backgound Image -->
+	<div class="bg-image bg-parallax overlay" style="background-image:url({% static "images/drama1.jpg"%})"></div>
+	<div class="home-wrapper">
+		<div class="col-md-10 col-md-offset-1 text-center">
+			<div class="home-content">
+				  <h1 class="white-text">Winners yet to be declared</h1>
+			</div>
+		</div>
+	</div>
+</div>
+{% endfor %}
+
+{% endblock %}
+>>>>>>> cc68c6d0bcc1cf04edbc0e115c85941f0a9770ad

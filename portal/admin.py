@@ -35,8 +35,51 @@ class EventAdmin(admin.ModelAdmin):
         return form
 
 
+class WinnerForm(forms.ModelForm):
+    class Meta:
+        model = Winner
+        fields = ('event', 'first', 'second', 'third')
+
+    def clean(self):
+        event = self.cleaned_data.get('event')
+        if event.time_period() != 'Past':
+            raise forms.ValidationError("Declare winners for past events only.")
+
+
+class WinnerAdmin(admin.ModelAdmin):
+    form = WinnerForm
+
+    def get_form(self, request, *args, **kwargs):
+        form = super(WinnerAdmin, self).get_form(request, *args, **kwargs)
+        form.current_user = request.user
+        return form
+
+
+class ClubsForm(forms.ModelForm):
+    class Meta:
+        model = Clubs
+        fields = ('name', 'about', 'secretary', 'joint_secretary')
+
+    def clean(self):
+        sec = self.cleaned_data.get('secretary')
+        jsec = self.cleaned_data.get('joint_secretary')
+        if not sec.is_organizer:
+            raise forms.ValidationError("Person assigned to secretary is not an organizer")
+        if not jsec.is_organizer:
+            raise forms.ValidationError("Person assigned to joint secretary is not an organizer")
+
+
+class ClubsAdmin(admin.ModelAdmin):
+    form = ClubsForm
+
+    def get_form(self, request, *args, **kwargs):
+        form = super(ClubsAdmin, self).get_form(request, *args, **kwargs)
+        form.current_user = request.user
+        return form
+
+
 admin.site.register(Event, EventAdmin)
 admin.site.register(Profile)
-admin.site.register(Clubs)
-admin.site.register(Winner)
+admin.site.register(Clubs, ClubsAdmin)
+admin.site.register(Winner, WinnerAdmin)
 admin.site.register(Teams)

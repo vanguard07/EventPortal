@@ -23,7 +23,10 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<<<<<<< HEAD
 
+=======
+>>>>>>> cc68c6d0bcc1cf04edbc0e115c85941f0a9770ad
 </head>
 <body>
 <div id="home" class="banner-area">
@@ -38,9 +41,16 @@
                         <div class="content" style="	bottom: 0; background: rgb(0, 0, 0); 	background: rgba(0, 0, 0, 0.5); color: #f1f1f1; width: 100%;	padding: 20px;" >
                             <h2 style="text-align:center; font-family:  'Allura'; color: white;  font-weight: 500;">Welcome to Unified Event Portal</h2><br><br>
                              <i class="fa fa-user" style="font-size:48px;color:white;"></i><br><br><br><br>
-                             <a href="#" class="btn btn-info btn-lg">
-                                <span class="glyphicon glyphicon-log-in"></span> <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a>
-                             </a>
+                            <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-danger btn-block">
+                                <i class="fa fa-google"></i>
+                                Sign in with <b>Google</b>
+                            </a>
+                            <br>
+                            <center><p>--  Else -- </p></center>
+                            <a href="{% url 'events:index' %}" class="btn btn-danger btn-block">
+                                <i class="fa fa-check"></i>
+                                Discover more events
+                            </a>
                         </div>
                     </div>
                 </div>
