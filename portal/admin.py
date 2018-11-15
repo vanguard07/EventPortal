@@ -42,6 +42,8 @@ class WinnerForm(forms.ModelForm):
 
     def clean(self):
         event = self.cleaned_data.get('event')
+        if event.club.secretary != self.current_user:
+            raise forms.ValidationError("Only Secretary can declare winners.")
         if event.time_period() != 'Past':
             raise forms.ValidationError("Declare winners for past events only.")
 
