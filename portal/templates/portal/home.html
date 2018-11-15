@@ -130,9 +130,9 @@
 													<li class="grid-sizer"></li><!-- for Masonry column width -->
 													<li>
 														<figure>
-															<img src="{{ event.image.url }}" alt=""/>
+															<img src="{{ event.image.url }}" alt="" style="height: 200px;"/>
 															<a href="{% url 'portal:detail' event.id %}" style="text-decoration:none">
-															   <figcaption><h3>{{ event.name }}</h3></figcaption>
+															   <figcaption><h3>{{ event.name }} - {{event.club}}</h3></figcaption>
                                                             </a>
 														</figure>
 													</li>
