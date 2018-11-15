@@ -38,7 +38,7 @@
 					{% for club in list_clubs %}
 			<div class="col-md-6">
 				<div class="papers text-center">
-					<img src="{{ club.image_url }}" alt=""><br/>
+					<img src="{{ club.image_url }}" alt="" style="height: 200px; width: 200px;"><br/>
 					<a href="{% url 'club-detail' club.id %}" style="text-decoration:none">
 					<h4 class="notopmarg nobotmarg">{{club.name}}</h4>
 					</a>
@@ -61,42 +61,42 @@
 				<div class="col-md-4">
 					<div class="restmenuwrap">
 						<div class="restitem clearfixs">
-							<div><img src="http://wowthemes.net/demo/leroy/img/dummies/1.jpg" style="height: 150px;"></div>
+							<div><img src="{% static "images/event10.jpg"%}" style="height: 150px;"></div>
+				  	</div>
+					</div>
+                </div>
+				<div class="col-md-4">
+					<div class="restmenuwrap">
+						<div class="restitem clearfixs">
+							<div><img src="{% static "images/event11.jpg"%}" style="height: 150px;"></div>
 				  	</div>
 					</div>
         </div>
 				<div class="col-md-4">
 					<div class="restmenuwrap">
 						<div class="restitem clearfixs">
-							<div><img src="https://rukminim1.flixcart.com/image/832/832/j26gmfk0/poster/d/g/k/medium-andblmusic2365-ananyadesigns-music-heavy-metal-original-imaek7n57wpzdhtr.jpeg?q=70" style="height: 150px;"></div>
+							<div><img src="{% static "images/event15.jpg"%}" style="height: 150px;"></div>
 				  	</div>
 					</div>
         </div>
 				<div class="col-md-4">
 					<div class="restmenuwrap">
 						<div class="restitem clearfixs">
-							<div><img src="https://www.edmdroid.com/wp-content/uploads/2015/08/hardwell-tomorrowland-2015.jpg" style="height: 150px;"></div>
+							<div><img src="{% static "images/event13.jpg"%}" style="height: 150px;"></div>
 				  	</div>
 					</div>
         </div>
 				<div class="col-md-4">
 					<div class="restmenuwrap">
 						<div class="restitem clearfixs">
-							<div><img src="https://www.henrysportsclub.com.au/site/wp-content/uploads/2014/10/Henry-Sports-Club-3.jpg" style="height: 150px;"></div>
+							<div><img src="{% static "images/event14.jpg"%}" style="height: 150px;"></div>
 				  	</div>
 					</div>
         </div>
 				<div class="col-md-4">
 					<div class="restmenuwrap">
 						<div class="restitem clearfixs">
-							<div><img src="https://www.monmouth.edu/mca/wp-content/uploads/sites/568/2018/06/metheader.jpg" style="height: 150px;"></div>
-				  	</div>
-					</div>
-        </div>
-				<div class="col-md-4">
-					<div class="restmenuwrap">
-						<div class="restitem clearfixs">
-							<div><img src="https://www.koreaboo.com/wp-content/uploads/2017/08/jimin09.jpg" style="height: 150px;"></div>
+							<div><img src="{% static "images/DSC_0050.jpg"%}" style="height: 150px;"></div>
 				  	</div>
 					</div>
         </div>
@@ -123,7 +123,7 @@
 													<li class="grid-sizer"></li><!-- for Masonry column width -->
 													<li>
 														<figure>
-															<img src="http://wowthemes.net/demo/leroy/img/dummies/10.jpg" alt=""/>
+															<img src="{{ event.image.url }}" alt=""/>
 															<a href="{% url 'portal:detail' event.id %}" style="text-decoration:none">
 															   <figcaption><h3>{{ event.name }}</h3></figcaption>
                               </a>

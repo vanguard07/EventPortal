@@ -39,7 +39,11 @@ def home(request):
 
 def EventList(request):
     events_list = Event.objects.all()
-    context = {"event_list": events_list}
+    list_clubs = Clubs.objects.all()
+    context = {
+        "event_list": events_list,
+        "list_clubs": list_clubs,
+    }
     return render(request, "portal/index.html", context)
 
 
